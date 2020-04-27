@@ -1,8 +1,15 @@
 #!/usr/bin/env sh
 
 # make sure we have installed all necessary tools
-[ -x "$(which git)" ] || echo "git is not installed"; exit 1
-[ -x "$(which stow)" ] || echo "stow is not installed"; exit 1
+if [ ! -x "$(which git)" ]; then
+  echo "git is not installed"
+  exit 1
+fi
+
+if [ ! -x "$(which stow)" ]; then
+  echo "stow is not installed"
+  exit 1
+fi
 
 # make sure we have pulled in and updated any submodules
 git submodule init
@@ -12,7 +19,7 @@ git submodule update
 base=""
 
 # folders that should, or only need to be installed for a local user
-useronly="git gpg"
+useronly="git gnupg"
 
 # run the stow command for the passed in directory ($1) in location $HOME
 stowit() {
