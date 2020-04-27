@@ -14,9 +14,9 @@ base=""
 # folders that should, or only need to be installed for a local user
 useronly="git"
 
-# run the stow command for the passed in directory ($2) in location $1
+# run the stow command for the passed in directory ($1) in location $HOME
 stowit() {
-  stow -vRt "${1}" "${2}"
+  stow -vRt "${HOME}" "${1}"
 }
 
 echo ""
@@ -24,13 +24,13 @@ echo "Stowing apps for user: $(whoami)"
 
 # install apps available to local users and root
 for app in ${base}; do
-  stowit "${HOME}" "${app}"
+  stowit "${app}"
 done
 
 # install only user space folders
 if [ ! "$(whoami)" = "root" ]; then
   for app in ${useronly}; do
-    stowit "${HOME}" "${app}"
+    stowit "${app}"
   done
 fi
 
