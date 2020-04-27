@@ -12,7 +12,7 @@
 - adds useful aliases (run `git aliases` to get a list)
 - uses rebase for pull
 - always gpg signs commits
-- caches credentials for `34560000` seconds
+- caches credentials for 1 day
 - automatically prunes branches and tags on fetch
 - configures `git-lfs`
 - uses short format for `git status`

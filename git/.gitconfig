@@ -63,8 +63,8 @@
 
 # special settings for credentials
 [credential]
-	# use cache helper and increase timeout
-	helper = cache --timeout=34560000
+	# use cache helper and increase timeout (1 day)
+	helper = cache --timeout=86400
 
 # special settings for diffs
 [diff]
