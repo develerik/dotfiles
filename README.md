@@ -6,6 +6,7 @@ Managed by stow
 
 1. [Prerequisites](#Prerequisites)
 2. [Installation](#Installation)
+3. [License](#License)
 
 ## Prerequisites
 
@@ -31,3 +32,7 @@ Assumes that you have already installed `git` and `stow`.
    ```
 
 If necessary, special installation instructions are available in the `README.md` file in the package.
+
+## License
+
+This repository is available under the [ISC license](LICENSE). Feel free to fork and modify the dotfiles as you please.
