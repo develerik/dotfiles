@@ -13,6 +13,7 @@
 - allows unattended passphrase
 - includes keygrip in listings
 - uses sha256 as default algorithm
+- ensures that all keys are refreshed through the selected keyserver
 
 ## Prerequisites
 
