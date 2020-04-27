@@ -15,9 +15,7 @@ useronly="git"
 
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
-  usr=$1
-  app=$2
-  stow -vRt "${usr}" "${app}"
+  stow -vRt "${1}" "${2}"
 }
 
 echo ""
