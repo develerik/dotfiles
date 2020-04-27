@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-[ -x $(which git) ] || echo "git is not installed"; exit 1
-[ -x $(which stow) ] || echo "stow is not installed"; exit 1
+[ -x "$(which git)" ] || echo "git is not installed"; exit 1
+[ -x "$(which stow)" ] || echo "stow is not installed"; exit 1
 
 # make sure we have pulled in and updated any submodules
 git submodule init
