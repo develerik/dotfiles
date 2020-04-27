@@ -29,11 +29,11 @@ for app in ${base}; do
 done
 
 # install only user space folders
-for app in ${useronly}; do
-  if [ ! "$(whoami)" = "root" ]; then
+if [ ! "$(whoami)" = "root" ]; then
+  for app in ${useronly}; do
     stowit "${HOME}" "${app}"
-  fi
-done
+  done
+fi
 
 echo ""
 echo "##### ALL DONE"
