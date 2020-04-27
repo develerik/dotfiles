@@ -1,0 +1,98 @@
+# include a local git configuration
+[include]
+	path = .gitconfig.local
+
+# core variables
+[core]
+	# use neovim as default editor
+	editor = nvim
+	# use diff-so-fancy as default pager
+	pager = diff-so-fancy | less --tabs=2 -RX
+
+# useful git aliases
+[alias]
+	# create a .gitignore file from gitignore.io templates
+	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://gitignore.io/api/$*\" | tee .gitignore;}; gi"
+	# save path without fancy diff
+	patch = "!git --no-pager diff --no-color"
+	# allow the use of identities
+	identity = "!git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+	# show all aliases
+	aliases = !git config --get-regexp \"alias.*\"
+	# show a graph summay
+	ll = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'"
+	# publish a new git branch on the remote
+	publish = "!git push -u origin $(git branch-name)"
+	# remove a git branch from the remote
+	unpublish = "!git push origin :$(git branch-name)"
+	# show all branches
+	branches = "branch -a"
+	# show all stashes
+	stashes = "stash list"
+	# show all tags
+	tags = "tag -n1 --list"
+
+# special settings for branches
+[branch]
+	# automatic rebase on pull
+	autosetuprebase = always
+
+# color settings
+[color]
+	# color ui
+	ui = auto
+# settings for diff-so-fancy
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+# settings for diff-so-fancy
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+# special settings for commits
+[commit]
+	# sign commits per default
+	gpgSign = true
+
+# special settings for credentials
+[credential]
+	# use cache helper and increase timeout
+	helper = cache --timeout=34560000
+
+# special settings for diffs
+[diff]
+	# use better diff algorithm
+	algorithm = histogram
+	#compactionHeuristic = true
+
+# special settings for fetch
+[fetch]
+	# automatically prune branches
+	prune = true
+	# automatically prune tags
+	pruneTags = true
+
+# lfs settings
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+# special settings for status
+[status]
+	# use short lines
+	short = true
+	# show the branch in short format
+	branch = true
+
+# git user settings (for use with identities)
+[user]
+	useConfigOnly = true
