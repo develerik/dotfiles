@@ -12,7 +12,7 @@ git submodule update
 base=""
 
 # folders that should, or only need to be installed for a local user
-useronly="git"
+useronly="git gpg"
 
 # run the stow command for the passed in directory ($1) in location $HOME
 stowit() {
