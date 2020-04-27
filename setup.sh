@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# make sure we have installed all necessary tools
 [ -x "$(which git)" ] || echo "git is not installed"; exit 1
 [ -x "$(which stow)" ] || echo "stow is not installed"; exit 1
 
