@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-# TODO: check for installed stow and git
+[ -x $(which git) ] || echo "git is not installed"; exit 1
+[ -x $(which stow) ] || echo "stow is not installed"; exit 1
 
 # make sure we have pulled in and updated any submodules
 git submodule init
