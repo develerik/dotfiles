@@ -70,7 +70,6 @@
 [diff]
 	# use better diff algorithm
 	algorithm = histogram
-	#compactionHeuristic = true
 
 # special settings for fetch
 [fetch]
