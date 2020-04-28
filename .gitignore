@@ -1,2 +1,5 @@
 # don't check in local git configuration
 .gitconfig.local
+
+# don't check in local ssh configuration
+config.local
