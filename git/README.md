@@ -17,7 +17,7 @@
 - configures `git-lfs`
 - uses short format for `git status`
 - uses identities to determine user configuration (see [Identities](#Identities))
-- includes local configuration `~/.gitconfig.local`
+- includes local configuration `~/.gitconfig_local`
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # include a local git configuration
 [include]
-	path = .gitconfig.local
+	path = .gitconfig_local
 
 # core variables
 [core]

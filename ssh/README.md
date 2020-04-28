@@ -7,7 +7,7 @@
 ## Features
 
 - disables roaming feature (`CVE-2016-0777`)
-- includes local configuration `~/.ssh/config.local`
+- includes local configuration `~/.ssh/config_local`
 - uses modern algorithms
 - uses only ipv4
 - enables keepalive
