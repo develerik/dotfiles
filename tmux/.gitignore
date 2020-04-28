@@ -1,0 +1,4 @@
+.tmux_local.conf
+
+.tmux/*
+!.tmux/plugins/tpm

@@ -1,5 +1,0 @@
-# don't check in local git configuration
-.gitconfig_local
-
-# don't check in local ssh configuration
-config_local
