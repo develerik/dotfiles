@@ -28,6 +28,8 @@ Assumes that you have already installed [git](https://git-scm.com) and [stow](ht
    ./setup.sh
 
    # install a single package
+   git submodule init
+   git submodule update
    stow -vRt "${HOME}" <package>
    ```
 

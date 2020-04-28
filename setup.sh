@@ -15,31 +15,16 @@ fi
 git submodule init
 git submodule update
 
-# what directories should be installable by all users including the root user
-base=""
-
-# folders that should, or only need to be installed for a local user
-useronly="git gnupg ssh"
-
-# run the stow command for the passed in directory ($1) in location $HOME
-stowit() {
-  stow -vRt "${HOME}" "${1}"
-}
+# what directories should be installable
+packages="git gnupg ssh"
 
 echo ""
 echo "Stowing apps for user: $(whoami)"
 
-# install apps available to local users and root
-for app in ${base}; do
-  stowit "${app}"
+# install available packages
+for package in ${packages}; do
+  stow -vRt "${HOME}" "${package}"
 done
-
-# install only user space folders
-if [ ! "$(whoami)" = "root" ]; then
-  for app in ${useronly}; do
-    stowit "${app}"
-  done
-fi
 
 echo ""
 echo "##### ALL DONE"
