@@ -1,0 +1,79 @@
+# vim: ft=cfg
+
+[global]
+    # display
+    monitor = 0
+    follow = none
+
+    # misc
+    title = dunst
+    class = Dunst
+
+    # format
+    font = sans-serif 11
+    markup = full
+    format = "<b>%a %p</b>\n%s\n%b"
+    geometry = "350x5-20+30"
+    alignment = left
+    bounce_freq = 0
+    word_wrap = true
+    ignore_newline = false
+    ellipsize = middle
+    transparency = 30
+    shrink = false
+    corner_radius = 0
+    line_height = 5
+    separator_height = 2
+    notification_height = 75
+
+    # icons
+    #icon_path =
+    icon_position = left
+    max_icon_size = 64
+
+    # behavior
+    sort = true
+    indicate_hidden = true
+    mouse_left_click = close_current
+    startup_notification = false
+    idle_threshold = 120
+    show_indicators = false
+    hide_duplicate_count = false
+    always_run_script = true
+
+    # padding
+    padding = 12
+    horizontal_padding = 10
+
+    # frame
+    separator_color = auto
+    frame_color = "#4c566a"
+    frame_width = 0
+
+    # history
+    show_age_threshold = 60
+    stack_duplicates = true
+    sticky_history = true
+    history_lenght = 20
+
+[urgency_low]
+    background = "#3b4252"
+    foreground = "#eceff4"
+    timeout = 10
+
+[urgency_normal]
+    background = "#3b4252"
+    foreground = "#eceff4"
+    timeout = 10
+
+[urgency_critical]
+    background = "#bf616a"
+    foreground = "#eceff4"
+    timeout = 10
+
+[Spotify]
+    background = "#1db954"
+    foreground = "#ffffff"
+    appname = Spotify
+    format = "<b>Now Playing</b>\n%s\n%b"
+    timeout = 5
