@@ -1,0 +1,14 @@
+configuration {
+  modi: "drun,ssh,calc,emoji";
+  lines: 8;
+  show-icons: true;
+  theme: "nord";
+  display-drun: "Open";
+  display-ssh: "Connect";
+  display-calc: "Calculate";
+  display-emoji: "Emoji";
+  drun-match-fields: "name,exec,categories";
+  drun-display-format: "{name}";
+  parse-known-hosts: false;
+  parse-hosts: false;
+}
