@@ -3,6 +3,7 @@ configuration {
   lines: 8;
   show-icons: true;
   theme: "nord";
+  font: "sans-serif 13";
   display-drun: "Open";
   display-ssh: "Connect";
   display-calc: "Calculate";
