@@ -6,7 +6,7 @@
 
 ## Features
 
-- includes local configuration `~/.tmux_local.conf`
+- includes local configuration `~/.tmux_local.conf` *(currently disabled)*
 - installs tmux plugin manager
 - sets base index to 1 and renumbers windows
 - tweak escape time
