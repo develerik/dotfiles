@@ -48,6 +48,6 @@ NAME=$(echo "$NAME" | sed \
 if [[ $MUTED =~ "yes" ]]; then
   echo "muted"
 else
-  echo "${VOL}% [${NAME}]" | envsubst '${VOL}${NAME}'
+  echo "${VOL}% [${NAME}]"
 fi
 
