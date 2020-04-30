@@ -5,7 +5,7 @@ set -a
 SCONTROL=$(amixer -D pulse scontrols | sed -n "s/Simple mixer control '\([^']*\)',0/\1/p" | head -n1)
 CAPABILITY=$(amixer -D pulse get "$SCONTROL" | sed -n "s/  Capabilities:.*cvolume.*/Capture/p")
 
-function move_sinks_to_new_default {
+move_sinks_to_new_default() {
   DEFAULT_SINK=$1
   pacmd list-sink-inputs | grep index: | grep -o '[0-9]\+' | while read -r SINK
   do
@@ -13,7 +13,7 @@ function move_sinks_to_new_default {
   done
 }
 
-function set_default_playback_device_next {
+set_default_playback_device_next() {
   inc=${1:-1}
   num_devices=$(pacmd list-sinks | grep -c index:)
   mapfile -t sink_arr < <(pacmd list-sinks | grep index: | grep -o '[0-9]\+')
@@ -45,9 +45,5 @@ NAME=$(echo "$NAME" | sed \
 's/.*<\(.*\)>.*/\1/; t;'\
 's/.*/unknown/')
 
-if [[ $MUTED =~ "yes" ]]; then
-  echo "muted"
-else
-  echo "${VOL}% [${NAME}]"
-fi
+[ "$MUTED" = "muted: no" ] && echo "${VOL}% [${NAME}]" || echo "muted"
 
