@@ -34,6 +34,12 @@
 - defines two `i3blocks` status bars (for main and secondary monitors)
 - uses lightdm to lock the session
 - includes nord themed arch wallpapers
+- configures `i3blocks` with the following blocks:
+  - mediaplayer
+  - volume
+  - keyboard layout
+  - time
+  - date
 
 ## Prerequisites
 

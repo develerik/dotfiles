@@ -1,0 +1,28 @@
+command=~/.config/i3blocks/blocks/$BLOCK_NAME.sh
+align=center
+separator=false
+separator_block_width=20
+markup=pango
+
+[mediaplayer]
+interval=2
+signal=2
+label=<span color="#BF616A"> </span>
+
+[volume]
+interval=2
+signal=1
+label=<span color="#EBCB8B"> </span>
+
+[keyboard]
+interval=persist
+signal=3
+label=<span color="#A3BE8C"> </span>
+
+[time]
+interval=1
+label=<span color="#D08770"> </span>
+
+[date]
+interval=60
+label=<span color="#B48EAD"> </span>

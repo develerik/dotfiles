@@ -230,7 +230,7 @@ bar {
 
 # secondary monitors
 bar {
-  status_command i3blocks -c $HOME/.config/i3blocks/config-small
+  status_command i3blocks -c $HOME/.config/i3blocks/config_secondary
   font           pango:monospace 11
   position       top
   output         $out_left
