@@ -220,8 +220,8 @@ bar {
     statusline $nord8
 
     # State             Border  BG      Text
-    focused_workspace   $nord8  $nord8  $nord3
-    active_workspace    $nord8  $nord8  $nord3
+    focused_workspace   $nord8  $nord8  $nord0
+    active_workspace    $nord8  $nord8  $nord0
     inactive_workspace  $nord3  $nord3  $nord8
     urgent_workspace    $nord3  $nord3  $nord15
     binding_mode        $nord13 $nord13 $nord0
@@ -245,8 +245,8 @@ bar {
     statusline $nord8
 
     # State             Border  BG      Text
-    focused_workspace   $nord8  $nord8  $nord3
-    active_workspace    $nord8  $nord8  $nord3
+    focused_workspace   $nord8  $nord8  $nord0
+    active_workspace    $nord8  $nord8  $nord0
     inactive_workspace  $nord3  $nord3  $nord8
     urgent_workspace    $nord3  $nord3  $nord15
     binding_mode        $nord13 $nord13 $nord0
