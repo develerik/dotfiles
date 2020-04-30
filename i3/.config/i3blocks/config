@@ -15,7 +15,7 @@ signal=1
 label=<span color="#EBCB8B"> </span>
 
 [keyboard]
-interval=persist
+interval=2
 signal=3
 label=<span color="#A3BE8C"> </span>
 
