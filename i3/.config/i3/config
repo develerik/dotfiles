@@ -1,0 +1,254 @@
+# vim: ft=i3config
+
+font monospace 12
+popup_during_fullscreen smart
+
+## variables
+
+# use win as modkey
+set $mod Mod4
+
+# wallpaper path
+set $wallpapers $HOME/Pictures/Wallpapers
+
+# vi key bindings
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+# monitor outputs
+set $out_main  DisplayPort-0
+set $out_left  DisplayPort-1
+set $out_right DisplayPort-2
+
+# theme colors (nord)
+set $nord0   #2E3440
+set $nord1   #3B4252
+set $nord2   #434C5E
+set $nord3   #4C566A
+set $nord4   #D8DEE9
+set $nord5   #E5E9F0
+set $nord6   #ECEFF4
+set $nord7   #8FBCBB
+set $nord8   #88C0D0
+set $nord9   #81A1C1
+set $nord10  #5E81AC
+set $nord11  #BF616A
+set $nord12  #D08770
+set $nord13  #EBCB8B
+set $nord14  #A3BE8C
+set $nord15  #B48EAD
+
+# define workspaces
+set $ws0 "1: Primary"
+set $ws1 "2: Secondary"
+set $ws2 "3: Tertiary"
+set $ws3 "4: Coding"
+set $ws4 "5: Gaming"
+set $ws5 "6: Media"
+set $ws6 "7"
+set $ws7 "8"
+set $ws8 "9"
+set $ws9 "10"
+
+# define binding modes
+set $mode_resize      "Resize: (h) shrink w, (j) grow h, (k) shrink h, (l) grow w"
+set $mode_system      "System: (l) lock, (e) logout, (r) reboot, (s) shutdown"
+set $mode_passthrough "Passthrough"
+
+## configure borders
+default_border          none
+default_floating_border none
+hide_edge_borders       none
+
+## autostart applications
+exec --no-startup-id setxkbmap -layout us,de -option caps:escape
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec_always --no-startup-id feh --bg-scale $wallpapers/uwqhd_space.jpg $wallpapers/4k_flat_sunset.png $wallpapers/4k_flat_night.jpg
+exec_always --no-startup-id dunst
+exec_always --no-startup-id picom -b --dbus
+
+## launch applications
+bindsym $mod+Return exec                 kitty
+bindsym $mod+d      exec --no-startup-id rofi -show
+bindsym Print       exec --no-startup-id flameshot gui
+bindsym $mod+Print  exec --no-startup-id peek
+
+## control i3
+floating_modifier $mod
+bindsym  $mod+Shift+q     [con_id="__focused__" title="^(?!scratchterm).*$"] kill
+bindsym  $mod+f           fullscreen toggle
+bindsym  $mod+Shift+space floating   toggle
+bindsym  $mod+Shift+n     exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+bindsym  $mod+Shift+c     reload
+bindsym  $mod+Shift+r     exec killall dunst; exec killall picom; restart
+bindcode $mod+66         exec xkb-switch -n && pkill -RTMIN+3 i3blocks
+
+## media controls
+bindcode 121 exec amixer    -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+bindcode 122 exec amixer    -q -D pulse sset Master 5%-    && pkill -RTMIN+1 i3blocks
+bindcode 123 exec amixer    -q -D pulse sset Master 5%+    && pkill -RTMIN+1 i3blocks
+bindcode 173 exec playerctl       previous                 && pkill -RTMIN+2 i3blocks
+bindcode 172 exec playerctl       play-pause               && pkill -RTMIN+2 i3blocks
+bindcode 171 exec playerctl       next                     && pkill -RTMIN+2 i3blocks
+
+## focus windows
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+## move windows
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+## switch workspace
+bindsym $mod+1 workspace $ws0
+bindsym $mod+2 workspace $ws1
+bindsym $mod+3 workspace $ws2
+bindsym $mod+4 workspace $ws3
+bindsym $mod+5 workspace $ws4
+bindsym $mod+6 workspace $ws5
+bindsym $mod+7 workspace $ws6
+bindsym $mod+8 workspace $ws7
+bindsym $mod+9 workspace $ws8
+bindsym $mod+0 workspace $ws9
+
+## move window to workspace
+bindsym $mod+Shift+1 move container to workspace $ws0
+bindsym $mod+Shift+2 move container to workspace $ws1
+bindsym $mod+Shift+3 move container to workspace $ws2
+bindsym $mod+Shift+4 move container to workspace $ws3
+bindsym $mod+Shift+5 move container to workspace $ws4
+bindsym $mod+Shift+6 move container to workspace $ws5
+bindsym $mod+Shift+7 move container to workspace $ws6
+bindsym $mod+Shift+8 move container to workspace $ws7
+bindsym $mod+Shift+9 move container to workspace $ws8
+bindsym $mod+Shift+0 move container to workspace $ws9
+
+## TODO: add workspace moving
+
+## scratchpad
+for_window [title="scratchterm"] move scratchpad
+exec --no-startup-id kitty --title scratchterm
+bindsym $mod+minus [title="scratchterm"] scratchpad show, resize set 940 600, move position center, sticky enable
+
+## assign workspaces to dedicated monitors
+workspace $ws0 output $out_main
+workspace $ws1 output $out_left
+workspace $ws2 output $out_right
+workspace $ws4 output $out_main
+workspace $ws5 output $out_left
+
+## assign windows to dedicated workspaces
+assign [class="jetbrains-.*"]  $ws3
+assign [class="Code"]          $ws3
+assign [class="Lutris"]        $ws4
+assign [class="Steam"]         $ws4
+assign [class="Wine"]          $ws4 # TODO: use a less general rule for games
+assign [class="MellowPlayer3"] $ws5
+assign [class="Spotify"]       $ws5
+
+## define floating windows
+for_window [window_role="pop-up"]                                         floating enable
+for_window [window_role="bubble"]                                         floating enable
+for_window [window_role="task_dialog"]                                    floating enable
+for_window [window_role="Preferences"]                                    floating enable
+for_window [window_role="dialog"]                                         floating enable
+for_window [window_role="menu"]                                           floating enable
+for_window [class="Pavucontrol"]                                          floating enable
+for_window [class="Virt-manager"]                                         floating enable
+for_window [class="File-roller"]                                          floating enable
+for_window [class="Pcmanfm"]                                              floating enable
+for_window [class="Veracrypt"]                                            floating enable
+for_window [title=".*Android Emulator.*"]                                 floating enable
+for_window [title="Microsoft Teams Notification" class="Microsoft Teams"] floating enable
+for_window [class="jetbrains-.*" title="win0"]                            floating enable
+for_window [window_type="splash"]                                         floating enable
+for_window [title="^zoom$"]                                               floating enable
+for_window [window_role="devtools"]                                       floating enable
+
+for_window [class="Spotify"] move to workspace $ws5
+
+## define mode shortcuts
+bindsym $mod+r   mode $mode_resize
+bindsym $mod+End mode $mode_system
+bindsym $mod+p   mode $mode_passthrough
+
+## configure modes
+mode $mode_resize {
+  bindsym h resize shrink width  10px or 10ppt
+  bindsym j resize grow   height 10px or 10ppt
+  bindsym k resize shrink height 10px or 10ppt
+  bindsym l resize grow   width  10px or 10ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+mode $mode_system {
+  bindsym l exec --no-startup-id dm-tool lock, mode "default"
+  bindsym e exec --no-startup-id i3-msg exit, mode "default"
+  bindsym r exec --no-startup-id reboot, mode "default"
+  bindsym s exec --no-startup-id poweroff, mode "default"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+mode $mode_passthrough {
+  bindsym $mod+P mode "default"
+}
+
+## configure status bars
+
+# primary monitor
+bar {
+  status_command i3blocks
+  font           pango:monospace 11
+  position       top
+  output         $out_main
+  tray_output    $out_main
+
+  bindsym button4 nop
+  bindsym button5 nop
+
+  colors {
+    background $nord0
+    statusline $nord8
+
+    # State             Border  BG      Text
+    focused_workspace   $nord3  $nord3  $nord8
+    active_workspace    $nord3  $nord3  $nord8
+    inactive_workspace  $nord8  $nord8  $nord3
+    urgent_workspace    $nord3  $nord3  $nord15
+    binding_mode        $nord13 $nord13 $nord0
+  }
+}
+
+# secondary monitors
+bar {
+  status_command i3blocks -c $HOME/.config/i3blocks/config-small
+  font           pango:monospace 11
+  position       top
+  output         $out_left
+  output         $out_right
+  tray_output    $out_main
+
+  bindsym button4 nop
+  bindsym button5 nop
+
+  colors {
+    background $nord0
+    statusline $nord8
+
+    # State             Border  BG      Text
+    focused_workspace   $nord3  $nord3  $nord8
+    active_workspace    $nord3  $nord3  $nord8
+    inactive_workspace  $nord8  $nord8  $nord3
+    urgent_workspace    $nord3  $nord3  $nord15
+    binding_mode        $nord13 $nord13 $nord0
+  }
+}
