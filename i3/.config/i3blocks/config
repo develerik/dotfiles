@@ -7,7 +7,7 @@ markup=pango
 [mediaplayer]
 interval=2
 signal=2
-label=<span color="#BF616A"> </span>
+label=<span color="#BF616A"> </span>
 
 [volume]
 interval=2
