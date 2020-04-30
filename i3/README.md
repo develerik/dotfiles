@@ -33,6 +33,7 @@
   - `feh`: wallpapers
 - defines two `i3blocks` status bars (for main and secondary monitors)
 - uses lightdm to lock the session
+- includes nord themed arch wallpapers
 
 ## Prerequisites
 

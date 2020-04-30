@@ -10,7 +10,7 @@ Managed by stow
 
 ## Prerequisites
 
-Assumes that you have already installed [git](https://git-scm.com) and [stow](https://www.gnu.org/software/stow).
+Assumes that you have already installed [git](https://git-scm.com) (with lfs) and [stow](https://www.gnu.org/software/stow).
 
 ## Installation
 

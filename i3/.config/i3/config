@@ -66,7 +66,7 @@ hide_edge_borders       none
 exec --no-startup-id setxkbmap -layout us,de -option caps:escape
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-exec_always --no-startup-id feh --bg-scale $wallpapers/uwqhd_space.jpg $wallpapers/4k_flat_sunset.png $wallpapers/4k_flat_night.jpg
+exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers/4k_nord.png $wallpapers/4k_nord.png
 exec_always --no-startup-id dunst
 exec_always --no-startup-id picom -b --dbus
 
@@ -220,9 +220,9 @@ bar {
     statusline $nord8
 
     # State             Border  BG      Text
-    focused_workspace   $nord3  $nord3  $nord8
-    active_workspace    $nord3  $nord3  $nord8
-    inactive_workspace  $nord8  $nord8  $nord3
+    focused_workspace   $nord8  $nord8  $nord3
+    active_workspace    $nord8  $nord8  $nord3
+    inactive_workspace  $nord3  $nord3  $nord8
     urgent_workspace    $nord3  $nord3  $nord15
     binding_mode        $nord13 $nord13 $nord0
   }
@@ -245,9 +245,9 @@ bar {
     statusline $nord8
 
     # State             Border  BG      Text
-    focused_workspace   $nord3  $nord3  $nord8
-    active_workspace    $nord3  $nord3  $nord8
-    inactive_workspace  $nord8  $nord8  $nord3
+    focused_workspace   $nord8  $nord8  $nord3
+    active_workspace    $nord8  $nord8  $nord3
+    inactive_workspace  $nord3  $nord3  $nord8
     urgent_workspace    $nord3  $nord3  $nord15
     binding_mode        $nord13 $nord13 $nord0
   }
