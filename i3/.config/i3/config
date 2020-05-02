@@ -84,7 +84,7 @@ bindsym  $mod+Shift+space floating   toggle
 bindsym  $mod+Shift+n     exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 bindsym  $mod+Shift+c     reload
 bindsym  $mod+Shift+r     exec killall dunst; exec killall picom; restart
-bindcode $mod+66         exec xkb-switch -n && pkill -RTMIN+3 i3blocks
+bindcode $mod+66          exec xkb-switch -n && pkill -RTMIN+3 i3blocks
 
 ## media controls
 bindcode 121 exec amixer    -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks

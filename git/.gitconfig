@@ -71,6 +71,10 @@
 	# use better diff algorithm
 	algorithm = histogram
 
+# better wasm diff
+[diff "wasm"]
+	textconv = wasm2wat --enable-all --generate-names
+
 # special settings for fetch
 [fetch]
 	# automatically prune branches
