@@ -7,7 +7,7 @@
 	# use neovim as default editor
 	editor = nvim
 	# use diff-so-fancy as default pager
-	pager = diff-so-fancy | less --tabs=2 -RX
+	pager = diff-so-fancy | less --tabs=2 -+X
 
 # useful git aliases
 [alias]
