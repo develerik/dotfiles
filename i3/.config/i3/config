@@ -94,6 +94,10 @@ bindcode 173 exec playerctl       previous                 && pkill -RTMIN+2 i3b
 bindcode 172 exec playerctl       play-pause               && pkill -RTMIN+2 i3blocks
 bindcode 171 exec playerctl       next                     && pkill -RTMIN+2 i3blocks
 
+## split orientation
+bindsym $mod+g split h; exec notify-send -a 'i3' 'Tile horizontally'
+bindsym $mod+v split v; exec notify-send -a 'i3' 'Tile vertically'
+
 ## focus windows
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
