@@ -25,3 +25,4 @@ setopt no_beep
 unsetopt beep
 unsetopt list_beep
 unsetopt rm_star_silent
+unsetopt nomatch # fix some errors
