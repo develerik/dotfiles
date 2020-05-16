@@ -7,16 +7,31 @@ disabled = true
 [conda]
 disabled= true
 
+[crystal]
+disabled= true
+
+[elixir]
+disabled= true
+
+[elm]
+disabled= true
+
+[erlang]
+disabled= true
+
 [git_branch]
 symbol = " "
 
 [golang]
 symbol = " "
 
-[hg_branch]
+[haskell]
 disabled = true
 
 [java]
+disabled = true
+
+[julia]
 disabled = true
 
 [kubernetes]
@@ -44,6 +59,9 @@ symbol = " "
 disabled = true
 
 [rust]
+disabled = true
+
+[singularity]
 disabled = true
 
 [terraform]

@@ -1,5 +1,7 @@
 #!usr/bin/env zsh
 
+#zmodload zsh/zprof
+
 export GPG_TTY=$(tty)
 
 # load plugins
