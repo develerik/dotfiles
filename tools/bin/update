@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+magenta='\e[1;35m'
+white='\e[0;37m'
+
+# since some programs are installed in non-root directories,
+# don't run this script as root to avoid permission conflict.
+if [[ $EUID -eq 0 ]]; then
+  echo "Don't run this script as root"
+  exit 1
+fi
+
+# print usage message
+usage() {
+  local program_name
+  program_name=${0##*/}
+  cat <<EOF
+Usage: $program_name [-option]
+Options:
+    --help    Print this message
+    -a        Update all packages
+EOF
+}
+
+update_pacman() {
+  if [ ! -x "$(which reflector)" ]; then
+    echo -e "$magenta\n Pacman not found. Skipping... \n$white"
+    return
+  fi
+
+  if [ -x "$(which reflector)" ]; then
+    echo -e "$magenta\n Updating Mirrors... \n$white"
+    sudo reflector -c DE -f 5 -p https --ipv4 --sort score --save /etc/pacman.d/mirrorlist
+  fi
+
+  helper="sudo pacman"
+
+  if [ -x "$(which pikaur)" ]; then
+    helper="pikaur"
+  fi
+
+  echo -e "$magenta\n Removing Orphan Packages... \n$white"
+  ${helper} -Rns $(${helper} -Qtdq)
+
+  echo -e "$magenta\n Updating System Packages... \n$white"
+  ${helper} -Syu
+
+  if [ -x "$(which pkgfile)" ]; then
+    echo -e "$magenta\n Updating the Repo Files List... \n$white"
+    sudo pkgfile -u
+  fi
+}
+
+update_vim() {
+  if [ ! -x "$(which nvim)" ]; then
+    echo -e "$magenta\n Neovim not found. Skipping... \n$white"
+    return
+  fi
+
+  echo -e "$magenta\n Updating vim-plug... \n$white"
+  nvim +PlugUpgrade +qall
+
+  echo -e "$magenta\n Updating vim Plugins... \n$white"
+  nvim +PlugUpdate +qall
+}
+
+update_zsh() {
+  if [ ! -x "$(which zsh)" ]; then
+    echo -e "$magenta\n Zsh not found. Skipping... \n$white"
+    return
+  fi
+
+  echo -e "$magenta\n Updating zinit... \n$white"
+  zsh -c "source ~/.zinit/zinit.zsh && zinit self-update"
+
+  echo -e "$magenta\n Updating zsh Plugins... \n$white"
+  zsh -c "source ~/.zinit/zinit.zsh && zinit update --all"
+}
+
+update_all() {
+  declare -a arr=(
+    "update_pacman"
+    "update_vim"
+    "update_zsh"
+  )
+
+  for update_command in "${arr[@]}"; do
+    read -r -p "Do you want to ${update_command//_/ } packages? [y/n] " response
+    case $response in
+      [yY][eE][sS]|[yY])
+        $update_command
+        ;;
+    esac
+  done
+}
+
+main() {
+  case "$1" in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    '')
+      update_all
+      ;;
+    -a)
+      update_pacman
+      update_vim
+      update_zsh
+      ;;
+    *)
+      echo "Command not found"
+      exit 1
+      ;;
+  esac
+}
+
+main "$@"

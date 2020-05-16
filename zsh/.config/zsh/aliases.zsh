@@ -9,7 +9,6 @@ alias lt='ls -T'
 
 # package management
 alias pm='pikaur'
-alias removeOrphans='pm -Rns $(pm -Qtdq)'
 
 # directories
 alias mkdir='mkdir -p'
