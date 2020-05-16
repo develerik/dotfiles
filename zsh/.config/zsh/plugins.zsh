@@ -1,23 +1,35 @@
 #!usr/bin/env zsh
 
-# check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+# check if zinit is installed
+if [[ ! -d ~/.zinit ]]; then
+  git clone https://github.com/zdharma/zinit.git ~/.zinit
+  source ~/.zinit/zinit.zsh && zinit self-update
 fi
 
 # essential
-source ~/.zplug/init.zsh
+source ~/.zinit/zinit.zsh
 
-zplug "zplug/zplug"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "auscompgeek/fast-syntax-highlighting"
+# don't bind these keys until ready
+bindkey -r '^[[A'
+bindkey -r '^[[B'
+function __bind_history_keys() {
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+}
 
-# install packages that have not been installed yet
-if ! zplug check --verbose; then
-  zplug install
-fi
+# history substring searching
+zinit ice wait lucid atload'__bind_history_keys'
+zinit light zsh-users/zsh-history-substring-search
 
-zplug load
+# autosuggestions, trigger precmd hook upon load
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=10
+
+# tab completions
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+# Syntax highlighting
+zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
+zinit light auscompgeek/fast-syntax-highlighting

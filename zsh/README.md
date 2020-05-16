@@ -8,7 +8,7 @@
 ## Features
 
 - includes local configuration `~/.zshrc_local`
-- uses `z-plug` to manage plugins
+- uses `zinit` to manage plugins
 - better key bindings
 - installs the following plugins
   - `zsh-users/zsh-autosuggestions`
