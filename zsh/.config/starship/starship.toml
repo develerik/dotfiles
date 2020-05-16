@@ -1,0 +1,50 @@
+[aws]
+symbol = " "
+
+[battery]
+disabled = true
+
+[conda]
+disabled= true
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+disabled = true
+
+[java]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[memory_usage]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[php]
+disabled = true
+
+[python]
+symbol = " "
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[terraform]
+disabled = true
