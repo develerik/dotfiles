@@ -1,0 +1,83 @@
+# nord colors
+nord0: &nord0 "#2E3440"
+nord1: &nord1 "#3B4252"
+nord2: &nord2 "#434C5E"
+nord3: &nord3 "#4C566A"
+nord4: &nord4 "#D8DEE9"
+nord5: &nord5 "#E5E9F0"
+nord6: &nord6 "#ECEFF4"
+nord7: &nord7 "#8FBCBB"
+nord8: &nord8 "#88C0D0"
+nord9: &nord9 "#81A1C1"
+nord10: &nord10 "#5E81AC"
+nord11: &nord11 "#BF616A"
+nord12: &nord12 "#D08770"
+nord13: &nord13 "#EBCB8B"
+nord14: &nord14 "#A3BE8C"
+nord15: &nord15 "#B48EAD"
+
+k9s:
+  body:
+    fgColor: *nord4
+    bgColor: *nord0
+    logoColor: *nord7
+  info:
+    fgColor: *nord7
+    sectionColor: *nord4
+  frame:
+    border:
+      focusColor: *nord7
+    menu:
+      fgColor: *nord4
+      keyColor: *nord7
+      numKeyColor: *nord7
+    crumbs:
+      fgColor: *nord0
+      bgColor: *nord7
+      activeColor: *nord12
+    status:
+      newColor: *nord8
+      modifyColor: *nord15
+      addColor: *nord15
+      errorColor: *nord11
+      highlightcolor: *nord12
+      killColor: *nord3
+      completedColor: *nord3
+    title:
+      fgColor: *nord0
+      bgColor: *nord7
+      highlightColor: *nord0
+      counterColor: *nord0
+      filterColor: *nord0
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - *nord15
+        - *nord11
+      defaultChartColors:
+        - *nord15
+        - *nord11
+    table:
+      fgColor: *nord4
+      bgColor: *nord0
+      cursorColor: *nord8
+      header:
+        fgColor: *nord7
+        bgColor: *nord0
+        sorterColor: *nord7
+    xray:
+      fgColor: *nord4
+      bgColor: *nord0
+      cursorColor: *nord8
+      graphicColor: *nord15
+    yaml:
+      keyColor: *nord7
+      colonColor: *nord7
+      valueColor: *nord5
+    logs:
+      fgColor: *nord5
+      bgColor: *nord0
+      indicator:
+        fgColor: *nord0
+        bgColor: *nord7
