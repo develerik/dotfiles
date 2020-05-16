@@ -37,7 +37,3 @@ export TERM="xterm-256color"
 
 # electron
 export ELECTRON_TRASH=trash-cli
-
-# gnome-keyring
-eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
