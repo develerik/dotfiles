@@ -5,6 +5,7 @@ let g:config_file_list = [
   \ 'options',
   \ 'autocommands',
   \ 'mappings',
+  \ 'filetypes',
   \ 'plugins',
   \ 'ui'
   \ ]

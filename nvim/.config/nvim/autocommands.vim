@@ -20,14 +20,8 @@ augroup accurate_syn_highlight
     autocmd BufEnter * :syntax sync fromstart
 augroup END
 
-" return to last edit position when opening a file
-augroup resume_edit_position
-  autocmd!
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-    \ | execute "normal! g`\"zvzz"
-    \ | endif
-augroup END
+" return to last edit position when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " display a message when the current file is not in utf-8 format
 augroup non_utf8_file_warn
