@@ -27,7 +27,7 @@
   - passthrough (`mod` + `p`): disables i3 key bindings
 - autostarts the following applications:
   - `setxkbmap`: load keyboard layouts
-  - `polkit-gnome-authentication-agent`: authenticate users
+  - `mate-polkit`: authenticate users
   - `dunst`: notification service
   - `picom`: composition manager
   - `feh`: wallpapers
