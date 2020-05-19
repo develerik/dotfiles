@@ -40,10 +40,11 @@ done < <(echo "$ACTIVE")
 VOL=$(echo "$VOL" | grep -o "[0-9]*%" | head -1 )
 VOL="${VOL%?}"
 
-NAME=$(echo "$NAME" | sed \
-'s/.*<.*\.\(.*\)>.*/\1/; t;'\
-'s/.*<\(.*\)>.*/\1/; t;'\
-'s/.*/unknown/')
+NAME=$(pacmd list-sinks |\
+awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
+grep "device.description" |\
+head -n1 |\
+sed 's/.*= "\(.*\)".*/\1/')
 
 [ "$MUTED" = "muted: no" ] && echo "${VOL}% [${NAME}]" || echo "muted"
 
