@@ -1,0 +1,23 @@
+# basic options
+source ~/.config/mutt/options
+
+# compose view options
+source ~/.config/mutt/compose
+
+# status bar, date format, finding stuff etc.
+source ~/.config/mutt/behavior
+
+# pager view options
+source ~/.config/mutt/pager
+
+# email headers and attachments
+source ~/.config/mutt/mails
+
+# sidebar patch config
+source ~/.config/mutt/sidebar
+
+# source colors and keybindings
+source ~/.config/mutt/colors
+source ~/.config/mutt/bindings
+
+source ~/.mutt/muttrc_local

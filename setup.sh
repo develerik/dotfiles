@@ -16,7 +16,7 @@ git submodule init
 git submodule update
 
 # what directories should be installable
-packages="git gnupg ssh tmux kitty chromium rofi dunst i3 nvim zsh k9s fonts tools"
+packages="git gnupg ssh tmux kitty chromium rofi dunst i3 nvim zsh k9s fonts tools mutt"
 
 echo ""
 echo "Stowing apps for user: $(whoami)"

@@ -35,3 +35,7 @@ alias rm='trash'
 # neovim
 alias vim='nvim'
 alias vi='nvim'
+
+# mutt
+alias mail='neomutt'
+alias mutt='neomutt'
