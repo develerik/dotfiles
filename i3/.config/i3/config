@@ -69,6 +69,7 @@ exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers/4k_nord.png $wallpapers/4k_nord.png
 exec_always --no-startup-id dunst
 exec_always --no-startup-id picom -b --dbus
+exec_always --no-startup-id pulseeffects --gapplication-service
 
 ## launch applications
 bindsym $mod+Return exec                 kitty

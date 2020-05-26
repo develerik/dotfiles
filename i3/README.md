@@ -31,6 +31,7 @@
   - `dunst`: notification service
   - `picom`: composition manager
   - `feh`: wallpapers
+  - `pulseeffects`: pulse audio addition
 - defines two `i3blocks` status bars (for main and secondary monitors)
 - uses lightdm to lock the session
 - includes nord themed arch wallpapers
@@ -56,4 +57,5 @@ This package assumes that you have installed the following tools:
 - [feh](https://feh.finalrewind.org)
 - [i3blocks](https://github.com/vivien/i3blocks)
 - [lightdm](https://github.com/canonical/lightdm)
+- [pulseeffects](https://github.com/wwmm/pulseeffects)
 - alsa and pulse audio
