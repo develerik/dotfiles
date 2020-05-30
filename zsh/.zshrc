@@ -1,8 +1,9 @@
 #!usr/bin/env zsh
 
-#zmodload zsh/zprof
-
-export GPG_TTY=$TTY
+if [ -t 0 ]; then
+	export GPG_TTY=$TTY
+	export PINENTRY_USER_DATA=USE_TTY=1
+fi
 
 # load plugins
 . $HOME/.config/zsh/plugins.zsh
