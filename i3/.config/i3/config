@@ -65,11 +65,11 @@ hide_edge_borders       none
 ## autostart applications
 exec --no-startup-id setxkbmap -layout us,de -option caps:escape
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers/4k_nord.png $wallpapers/4k_nord.png
 exec_always --no-startup-id dunst
 exec_always --no-startup-id picom -b --dbus
-exec_always --no-startup-id pulseeffects --gapplication-service
 
 ## launch applications
 bindsym $mod+Return exec                 kitty
