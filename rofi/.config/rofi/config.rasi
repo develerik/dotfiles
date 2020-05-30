@@ -1,13 +1,12 @@
 configuration {
-  modi: "drun,ssh,calc,emoji";
+  modi: "drun,ssh,calc";
   lines: 8;
   show-icons: true;
   theme: "nord";
   font: "sans-serif 13";
-  display-drun: "Open";
+  display-drun: "";
   display-ssh: "Connect";
   display-calc: "Calculate";
-  display-emoji: "Emoji";
   drun-match-fields: "name,exec,categories";
   drun-display-format: "{name}";
   parse-known-hosts: false;
