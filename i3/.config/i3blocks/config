@@ -4,11 +4,6 @@ separator=false
 separator_block_width=20
 markup=pango
 
-[mediaplayer]
-interval=2
-signal=2
-label=<span color="#BF616A"> </span>
-
 [volume]
 interval=2
 signal=1
