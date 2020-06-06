@@ -6,8 +6,7 @@
 [core]
 	# use neovim as default editor
 	editor = nvim
-	# use diff-so-fancy as default pager
-	pager = diff-so-fancy | less --tabs=2 -+X
+	pager = less --tabs=2 -+X
 
 # useful git aliases
 [alias]
@@ -51,20 +50,6 @@
 [color]
 	# color ui
 	ui = auto
-# settings for diff-so-fancy
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-# settings for diff-so-fancy
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 
 # special settings for commits
 [commit]
@@ -80,6 +65,24 @@
 [diff]
 	# use better diff algorithm
 	algorithm = histogram
+	# configure vscode as difftool
+	tool = vscode
+
+# configure vscode as difftool
+[difftool]
+  prompt = false
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+  # configure vscode as mergetool
+  tool = vscode
+
+# configure vscode as mergetool
+[mergetool]
+  prompt = false
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
 
 # better wasm diff
 [diff "wasm"]
@@ -91,6 +94,14 @@
 	prune = true
 	# automatically prune tags
 	pruneTags = true
+
+# special settings for pull
+[pull]
+  rebase = true
+
+# special settings for submodules
+[submodule]
+  recurse = true
 
 # lfs settings
 [filter "lfs"]

@@ -8,7 +8,7 @@
 
 ## Features
 
-- utilizes `neovim` and `diff-so-fancy`
+- utilizes `neovim` and `Visual Studio Code`
 - adds useful aliases (run `git aliases` to get a list)
 - uses rebase for pull
 - always gpg signs commits
@@ -25,7 +25,7 @@
 This package assumes that you have installed the following tools:
 
 - [neovim](https://neovim.io)
-- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+- [Visual Studio Code](https://code.visualstudio.com)
 - [git-lfs](https://git-lfs.github.com)
 
 ## Identities
