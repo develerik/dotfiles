@@ -65,17 +65,19 @@ hide_edge_borders       none
 ## autostart applications
 exec --no-startup-id setxkbmap -layout us,de -option caps:escape
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id /usr/bin/numlockx on
 
 exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers/4k_nord.png $wallpapers/4k_nord.png
 exec_always --no-startup-id dunst
 exec_always --no-startup-id picom -b --dbus
 
 ## launch applications
-bindsym $mod+Return exec                 kitty
-bindsym $mod+d      exec --no-startup-id rofi -show
-bindsym Print       exec --no-startup-id flameshot gui
-bindsym $mod+Print  exec --no-startup-id peek
+bindsym $mod+Return  exec                 kitty
+bindsym $mod+d       exec --no-startup-id rofi -show
+bindsym $mod+Shift+d exec --no-startup-id rofi -modi 1pass:rofi-1pass -show 1pass
+bindsym Print        exec --no-startup-id flameshot gui
+bindsym $mod+Print   exec --no-startup-id peek
 
 ## control i3
 floating_modifier $mod
@@ -146,6 +148,7 @@ bindsym $mod+minus [title="scratchterm"] scratchpad show, resize set 940 600, mo
 workspace $ws0 output $out_main
 workspace $ws1 output $out_left
 workspace $ws2 output $out_right
+workspace $ws3 output $out_main
 workspace $ws4 output $out_main
 workspace $ws5 output $out_left
 
@@ -155,7 +158,6 @@ assign [class="Code"]          $ws3
 assign [class="Lutris"]        $ws4
 assign [class="Steam"]         $ws4
 assign [class="Wine"]          $ws4 # TODO: use a less general rule for games
-assign [class="MellowPlayer3"] $ws5
 assign [class="Spotify"]       $ws5
 
 ## define floating windows
@@ -175,6 +177,14 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams"] floati
 for_window [class="jetbrains-.*" title="win0"]                            floating enable
 for_window [window_type="splash"]                                         floating enable
 for_window [window_role="devtools"]                                       floating enable
+for_window [class="Evolution-alarm-notify"]                               floating enable
+for_window [class="Evolution" title="Appointment — .*"]                   floating enable
+for_window [class="Evolution" title="Meeting — .*"]                       floating enable
+for_window [class="Evolution" title="Contact Editor — .*"]                floating enable
+for_window [class="Evolution" title="Task — .*"]                          floating enable
+for_window [class="Evolution" title="Compose Message"]                    floating enable
+for_window [class="Lightdm-settings"]                                     floating enable
+for_window [class="jetbrains-studio" title="Welcome to Android Studio"]   floating enable
 
 for_window [class="Spotify"] move to workspace $ws5
 
