@@ -7,7 +7,6 @@
 ## Features
 
 - uses nord theme
-- includes local configuration `~/.config/kitty/local.conf`
 - configures font (incl. ligatures)
 - enables copy on select
 - disables all shortcuts
