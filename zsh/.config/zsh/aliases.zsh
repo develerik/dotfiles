@@ -14,7 +14,7 @@ alias pm='pikaur'
 alias mkdir='mkdir -p'
 
 # grep
-alias grep='ag --color'
+alias grep='rg'
 alias fgrep='fgrep --color'
 alias egrep='egrep --color'
 
@@ -36,6 +36,8 @@ alias rm='trash'
 alias vim='nvim'
 alias vi='nvim'
 
-# mutt
-alias mail='neomutt'
-alias mutt='neomutt'
+# fzf
+alias explore='fzf --preview "bat {-1} --color=always"'
+
+# 1password
+alias op-login='eval $(op signin my)'
