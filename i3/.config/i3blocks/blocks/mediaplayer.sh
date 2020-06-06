@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-artist=$(playerctl metadata artist)
-title=$(playerctl metadata title)
+artist=$(playerctl metadata artist 2> /dev/null)
+title=$(playerctl metadata title 2> /dev/null)
 
 REG_AMZ="^Amazon\.de: ([a-zA-Z!\[\]. /üöä'-]+) ansehen \| Prime Video$"
 
