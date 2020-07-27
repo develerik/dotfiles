@@ -27,7 +27,6 @@
     notification_height = 75
 
     # icons
-    #icon_path =
     icon_position = left
     max_icon_size = 64
 

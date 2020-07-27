@@ -20,8 +20,11 @@
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     # picom
     ~/.config/picom/picom.conf: picom/picom.conf
+    # dunst
+    ~/.config/dunst/dunstrc: dunst/dunstrc
 
 - create:
+    - ~/.config/dunst
     - ~/.config/kitty
     - ~/.config/picom
     - ~/.config/ssh
