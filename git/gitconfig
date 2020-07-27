@@ -53,6 +53,9 @@
 	# configure vscode as external difftool
 	tool = vscode
 
+[difftool]
+	prompt = false
+
 # better wasm diff
 [diff "wasm"]
 	textconv = wasm2wat --enable-all --generate-names
@@ -60,6 +63,9 @@
 [merge]
 	# configure vscode as external mergetool
 	tool = vscode
+
+[mergetool]
+	prompt = false
 
 [filter "lfs"]
 	required = true
