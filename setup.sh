@@ -16,7 +16,7 @@ git submodule init
 git submodule update
 
 # what directories should be installable
-packages="tmux chromium rofi i3 nvim zsh pulse"
+packages="tmux chromium i3 nvim zsh pulse"
 
 echo ""
 echo "Stowing apps for user: $(whoami)"

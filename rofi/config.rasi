@@ -7,7 +7,7 @@ configuration {
   display-drun: "";
   display-ssh: "Connect";
   display-calc: "Calculate";
-  drun-match-fields: "name,exec,categories";
+  drun-match-fields: "name";
   drun-display-format: "{name}";
   parse-known-hosts: false;
   parse-hosts: false;

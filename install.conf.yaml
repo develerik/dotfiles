@@ -26,12 +26,16 @@
     ~/.config/fontconfig/fonts.conf: fonts/fonts.conf
     # k9s
     ~/.k9s/skin.yml: k9s/skin.yml
+    # rofi
+    ~/.config/rofi/config.rasi: rofi/config.rasi
+    ~/.config/rofi/nord.rasi: rofi/nord.rasi
 
 - create:
     - ~/.config/dunst
     - ~/.config/fontconfig
     - ~/.config/kitty
     - ~/.config/picom
+    - ~/.config/rofi
     - ~/.gnupg
     - ~/.k9s
     - ~/.ssh
