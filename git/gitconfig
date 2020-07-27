@@ -45,6 +45,10 @@
 	# use cache helper and increase timeout (1 day)
 	helper = cache --timeout=86400
 
+[log]
+	# use abbrev SHAs whenever possible/relevant instead of full 40 chars
+	abbrevCommit = true
+
 [diff]
 	# use better diff algorithm
 	algorithm = histogram
@@ -63,6 +67,11 @@
 	tool = vscode
 
 [mergetool]
+	# clean up backup files created by merge tools on tool exit
+	keepBackup = false
+	# clean up temp files created by merge tools on tool exit
+	keepTemporaries = false
+	# auto-accept file prompts when launching merge tools
 	prompt = false
 
 [filter "lfs"]
