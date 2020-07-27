@@ -22,9 +22,12 @@
     ~/.config/picom/picom.conf: picom/picom.conf
     # dunst
     ~/.config/dunst/dunstrc: dunst/dunstrc
+    # fonts
+    ~/.config/fontconfig/fonts.conf: fonts/fonts.conf
 
 - create:
     - ~/.config/dunst
+    - ~/.config/fontconfig
     - ~/.config/kitty
     - ~/.config/picom
     - ~/.config/ssh
