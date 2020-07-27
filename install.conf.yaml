@@ -12,6 +12,8 @@
     # kitty
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/kitty/nord.conf: kitty/nord.conf
+    # ssh
+    ~/.ssh/config: ssh/config
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
