@@ -14,6 +14,13 @@
     ~/.config/kitty/nord.conf: kitty/nord.conf
     # ssh
     ~/.ssh/config: ssh/config
+    # gnupg
+    ~/bin/pinentry-auto: gnupg/pinentry-auto
+    ~/.gnupg/gpg.conf: gnupg/gpg.conf
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+
+- create:
+    - ~/projects
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
