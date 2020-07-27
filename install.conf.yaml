@@ -29,12 +29,16 @@
     # rofi
     ~/.config/rofi/config.rasi: rofi/config.rasi
     ~/.config/rofi/nord.rasi: rofi/nord.rasi
+    # PulseAudio
+    ~/.config/pulse/daemon.conf: pulse/daemon.conf
+    ~/.config/pulse/default.pa: pulse/default.pa
 
 - create:
     - ~/.config/dunst
     - ~/.config/fontconfig
     - ~/.config/kitty
     - ~/.config/picom
+    - ~/.config/pulse
     - ~/.config/rofi
     - ~/.gnupg
     - ~/.k9s
