@@ -6,8 +6,12 @@
 - clean: ["~"]
 
 - link:
+    # git
     ~/.gitattributes: git/gitattributes
     ~/.gitconfig: git/gitconfig
+    # kitty
+    ~/.config/kitty/kitty.conf: kitty/kitty.conf
+    ~/.config/kitty/nord.conf: kitty/nord.conf
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
