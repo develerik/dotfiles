@@ -1,0 +1,120 @@
+# include local configuration
+[include]
+	path = .config/git/config
+
+# include local identities
+[include]
+	path = .config/git/identities
+
+# include local aliases
+[include]
+	path = .config/git/aliases
+
+[core]
+	# use neovim as default editor
+	editor = nvim
+	# use diff-so-fancy as default pager
+	pager = diff-so-fancy | less --tabs=2 -RFX
+
+[branch]
+	# automatic rebase on pull
+	autosetuprebase = always
+
+[fetch]
+	# automatically prune branches
+	prune = true
+	# automatically prune tags
+	pruneTags = true
+
+[pull]
+	# use rebase pull instead of merge
+	rebase = true
+
+[submodule]
+	recurse = true
+
+[status]
+	# use short lines
+	short = true
+	# show the branch in short format
+	branch = true
+
+[color]
+	# colorful ui
+	ui = auto
+
+[credential]
+	# use cache helper and increase timeout (1 day)
+	helper = cache --timeout=86400
+
+[diff]
+	# use better diff algorithm
+	algorithm = histogram
+	# configure vscode as external difftool
+	tool = vscode
+
+# better wasm diff
+[diff "wasm"]
+	textconv = wasm2wat --enable-all --generate-names
+
+[merge]
+	# configure vscode as external mergetool
+	tool = vscode
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[difftool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[alias]
+	# create a .gitignore file from toptal templates
+	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://www.toptal.com/developers/gitignore/api/$*\" | tee .gitignore;}; gi"
+	# save path without fancy diff
+	patch = "!git --no-pager diff --no-color"
+	# allow the use of identities
+	identity = "!git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+	# show all aliases
+	aliases = !git config --get-regexp \"alias.*\"
+	# show a graph summay
+	ll = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)[%an]%Creset'"
+	# publish a new git branch on the remote
+	publish = "!git push -u origin $(git branch --show-current)"
+	# remove a git branch from the remote
+	unpublish = "!git push origin :$(git branch --show-current)"
+	# show all branches
+	branches = "branch -a"
+	# show all stashes
+	stashes = "stash list"
+	# show all tags
+	tags = "tag -n1 --list"
+	# end of work: push wip commit
+	eow = "git add -A; git commit -am ':wrench: [WIP] Done for today, cya tomorrow [ci skip] :wave:'; git push"
+	# faster commit
+	c = "commit -m"
+	# faster checkout
+	cb = "checkout -b"
+	# amend to commit without changing the message
+	oops = "!f(){ \
+		if [ \"$1\" == '' ]; then \
+			git commit --amend --no-edit; \
+		else \
+			git commit --amend \"$@\"; \
+		fi;\
+	}; f"
+
+[user]
+	# use git identities
+	useConfigOnly = true

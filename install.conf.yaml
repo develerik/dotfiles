@@ -5,5 +5,9 @@
 
 - clean: ["~"]
 
+- link:
+    ~/.gitattributes: git/gitattributes
+    ~/.gitconfig: git/gitconfig
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
