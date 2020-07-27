@@ -110,6 +110,8 @@
 	cb = "checkout -b"
 	# undo last commit
 	undo = "reset --soft HEAD^"
+	# edit last commit message
+	reword = commit --amend
 	# amend to commit without changing the message
 	oops = "!f(){ \
 		if [ \"$1\" == '' ]; then \
