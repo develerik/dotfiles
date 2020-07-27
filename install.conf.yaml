@@ -24,13 +24,18 @@
     ~/.config/dunst/dunstrc: dunst/dunstrc
     # fonts
     ~/.config/fontconfig/fonts.conf: fonts/fonts.conf
+    # k9s
+    ~/.k9s/skin.yml: k9s/skin.yml
 
 - create:
     - ~/.config/dunst
     - ~/.config/fontconfig
     - ~/.config/kitty
     - ~/.config/picom
-    - ~/.config/ssh
+    - ~/.gnupg
+    - ~/.k9s
+    - ~/.ssh
+    - ~/.ssh/config.d
     - ~/bin
     - ~/projects
     - ~/Downloads
