@@ -32,8 +32,11 @@
     # PulseAudio
     ~/.config/pulse/daemon.conf: pulse/daemon.conf
     ~/.config/pulse/default.pa: pulse/default.pa
+    # chromium
+    ~/.config/chromium/chromium-flags.conf: chromium/chromium-flags.conf
 
 - create:
+    - ~/.config/chromium
     - ~/.config/dunst
     - ~/.config/fontconfig
     - ~/.config/kitty
