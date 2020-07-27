@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-if [ ! -x "$(which curl)" ]; then
-  echo "curl not found"
-  exit 1
-fi
-
-curl -s "https://v2.wttr.in/${1:-Marburg}?m2F"
