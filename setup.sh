@@ -16,7 +16,7 @@ git submodule init
 git submodule update
 
 # what directories should be installable
-packages="i3 nvim zsh"
+packages="nvim zsh"
 
 echo ""
 echo "Stowing apps for user: $(whoami)"
