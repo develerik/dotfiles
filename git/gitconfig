@@ -108,6 +108,8 @@
 	c = "commit -m"
 	# faster checkout
 	cb = "checkout -b"
+	# undo last commit
+	undo = "reset --soft HEAD^"
 	# amend to commit without changing the message
 	oops = "!f(){ \
 		if [ \"$1\" == '' ]; then \
