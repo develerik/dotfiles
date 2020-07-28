@@ -1,18 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 base=${BASE:-"${HOME}/.docker/definitions"}
 version=${VERSION:-"3.8"}
 
-function compose() {
-  if [[ ! -f "${base}/${1}.yml" ]]; then
-    echo "could not find '${1}' stack"
+compose() {
+  stack=${1}
+
+  if [ ! -f "${base}/${stack}.yml" ]; then
+    echo "could not find '${stack}' stack"
     exit 1
   fi
 
-  docker-compose -f "${base}/${1}.yml" -p "${1}" "${@:2}"
+  shift
+
+  docker-compose -f "${base}/${stack}.yml" -p "${stack}" "${@}"
 }
 
-function create-stack() {
+create_stack() {
   definition="${base}/${1}.yml"
   {
     echo "---"
@@ -22,13 +26,17 @@ function create-stack() {
   } > "$definition"
 }
 
-function delete-stack() {
+delete_stack() {
   rm -rf "${base}/${1}.yml"
 }
 
-case "${2}" in
-  "--create") create-stack "${1}"     ;;
-  "--delete") delete-stack "${1}"     ;;
-  "")         compose "${1}" config   ;;
-  *)          compose "${1}" "${@:2}" ;;
+stack=${1}
+
+shift
+
+case "${1}" in
+  "--create") create_stack "${stack}"     ;;
+  "--delete") delete_stack "${stack}"     ;;
+  "")         compose "${stack}" config   ;;
+  *)          compose "${stack}" "${@}" ;;
 esac
