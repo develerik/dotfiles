@@ -1,4 +1,0 @@
-# don't install README.md files
-
-^/README.md
-^/.gitignore

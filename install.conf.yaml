@@ -5,6 +5,31 @@
 
 - clean: ["~"]
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
+- create:
+    - ~/.config/chromium
+    - ~/.config/dunst
+    - ~/.config/fontconfig
+    - ~/.config/i3
+    - ~/.config/i3blocks
+    - ~/.config/i3blocks/blocks
+    - ~/.config/kitty
+    - ~/.config/nvim
+    - ~/.config/picom
+    - ~/.config/pulse
+    - ~/.config/rofi
+    - ~/.config/starship
+    - ~/.config/zsh
+    - ~/.gnupg
+    - ~/.k9s
+    - ~/.ssh
+    - ~/.ssh/config.d
+    - ~/bin
+    - ~/Pictures
+    - ~/Pictures/Wallpapers
+
 - link:
     # git
     ~/.gitattributes: git/gitattributes
@@ -52,29 +77,17 @@
     ~/.config/zsh/options.zsh: zsh/options.zsh
     ~/.config/zsh/completions.zsh: zsh/completions.zsh
     ~/.config/zsh/plugins.zsh: zsh/plugins.zsh
+    # neovim
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim/autocommands.vim: nvim/autocommands.vim
+    ~/.config/nvim/filetypes.vim: nvim/filetypes.vim
+    ~/.config/nvim/mappings.vim: nvim/mappings.vim
+    ~/.config/nvim/options.vim: nvim/options.vim
+    ~/.config/nvim/plugins.vim: nvim/plugins.vim
+    ~/.config/nvim/ui.vim: nvim/ui.vim
+    ~/.config/nvim/variables.vim: nvim/variables.vim
 
 - create:
-    - ~/.config/chromium
-    - ~/.config/dunst
-    - ~/.config/fontconfig
-    - ~/.config/i3
-    - ~/.config/i3blocks
-    - ~/.config/i3blocks/blocks
-    - ~/.config/kitty
-    - ~/.config/picom
-    - ~/.config/pulse
-    - ~/.config/rofi
-    - ~/.config/starship
-    - ~/.config/zsh
-    - ~/.gnupg
-    - ~/.k9s
-    - ~/.ssh
-    - ~/.ssh/config.d
-    - ~/bin
     - ~/projects
     - ~/Downloads
-    - ~/Pictures
-    - ~/Pictures/Wallpapers
 
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]

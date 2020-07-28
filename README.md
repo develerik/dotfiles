@@ -10,30 +10,16 @@ Managed by stow
 
 ## Prerequisites
 
-Assumes that you have already installed [git](https://git-scm.com) (with lfs) and [stow](https://www.gnu.org/software/stow).
+Assumes that you have already installed [git](https://git-scm.com) (with lfs).
 
 ## Installation
 
-1. Clone this repository
+```sh
+git clone --recursive https://github.com/develerik/dotfiles.git ~/.dotfiles
+./.dotfiles/install
+```
 
-   ```sh
-   git clone https://github.com/develerik/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
-   ```
-
-2. Install packages
-
-   ```sh
-   # install the whole collection
-   ./setup.sh
-
-   # install a single package
-   git submodule init
-   git submodule update
-   stow -vRt "${HOME}" <package>
-   ```
-
-If necessary, special installation instructions are available in the `README.md` file in the package.
+If necessary, special installation instructions are available in the `README.md` file in the package (will be updated soon).
 
 ## License
 
