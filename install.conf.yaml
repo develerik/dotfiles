@@ -43,6 +43,15 @@
     ~/.config/i3blocks/blocks/volume.sh: i3/blocks/volume.sh
     ~/Pictures/Wallpapers/4k_nord.png: i3/wallpapers/4k_nord.png
     ~/Pictures/Wallpapers/uw5k_nord.png: i3/wallpapers/uw5k_nord.png
+    # zsh
+    ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
+    ~/.config/starship/starship.toml: zsh/starship.toml
+    ~/.config/zsh/aliases.zsh: zsh/aliases.zsh
+    ~/.config/zsh/bindings.zsh: zsh/bindings.zsh
+    ~/.config/zsh/options.zsh: zsh/options.zsh
+    ~/.config/zsh/completions.zsh: zsh/completions.zsh
+    ~/.config/zsh/plugins.zsh: zsh/plugins.zsh
 
 - create:
     - ~/.config/chromium
@@ -55,6 +64,8 @@
     - ~/.config/picom
     - ~/.config/pulse
     - ~/.config/rofi
+    - ~/.config/starship
+    - ~/.config/zsh
     - ~/.gnupg
     - ~/.k9s
     - ~/.ssh

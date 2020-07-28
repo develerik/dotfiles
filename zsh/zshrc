@@ -1,0 +1,42 @@
+#!usr/bin/env zsh
+
+if [ -t 0 ]; then
+	export GPG_TTY=$TTY
+	export PINENTRY_USER_DATA=USE_TTY=1
+fi
+
+# load plugins
+. $HOME/.config/zsh/plugins.zsh
+
+# load configuration
+. $HOME/.config/zsh/aliases.zsh
+. $HOME/.config/zsh/bindings.zsh
+. $HOME/.config/zsh/completions.zsh
+. $HOME/.config/zsh/options.zsh
+
+# load local configuration
+if [[ -f $HOME/.config/zsh/local.zsh ]]; then
+  . $HOME/.config/zsh/local.zsh
+fi
+
+if [[ -f /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
+  . /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
+# lazy load nvm
+function nvm() {
+  if [[ -d "${HOME}/.nvm" ]]; then
+    NVM_DIR="${HOME}/.nvm"
+    export NVM_DIR
+    . "${NVM_DIR}/nvm.sh"
+    if [[ -e $HOME/.nvm/alias/default ]]; then
+      PATH="${PATH}:${NVM_DIR}/versions/node/$(cat $NVM_DIR/alias/default)/bin"
+    fi
+    nvm "$@"
+  else
+    echo "nvm is not installed" >&2
+    return 1
+  fi
+}
+
+eval "$(starship init zsh)"
