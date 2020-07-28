@@ -1,0 +1,7 @@
+- create:
+    - ~/.config/starship
+    - ~/.config/bash
+
+- link:
+    ~/.bashrc: bash/bashrc
+    ~/.config/starship/starship.toml: starship/starship.toml

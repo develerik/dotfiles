@@ -1,0 +1,16 @@
+#!usr/bin/env bash
+
+# if not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+if [ -t 0 ]; then
+	export GPG_TTY=$TTY
+	export PINENTRY_USER_DATA=USE_TTY=1
+fi
+
+# load local configuration
+if [[ -f $HOME/.config/bash/local.sh ]]; then
+  . $HOME/.config/bash/local.sh
+fi
+
+eval "$(starship init bash)"
