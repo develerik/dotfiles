@@ -1,0 +1,3 @@
+- link:
+    ~/.gitattributes: git/gitattributes
+    ~/.gitconfig: git/gitconfig

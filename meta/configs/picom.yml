@@ -1,0 +1,5 @@
+- create:
+    - ~/.config/picom
+
+- link:
+    ~/.config/picom/picom.conf: picom/picom.conf

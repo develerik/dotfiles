@@ -1,0 +1,8 @@
+- create:
+    - ~/.gnupg
+    - ~/bin
+
+- link:
+    ~/bin/pinentry-auto: gnupg/pinentry-auto
+    ~/.gnupg/gpg.conf: gnupg/gpg.conf
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf

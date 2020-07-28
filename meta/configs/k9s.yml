@@ -1,0 +1,5 @@
+- create:
+    - ~/.k9s
+
+- link:
+    ~/.k9s/skin.yml: k9s/skin.yml

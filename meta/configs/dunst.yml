@@ -1,0 +1,5 @@
+- create:
+    - ~/.config/dunst
+
+- link:
+    ~/.config/dunst/dunstrc: dunst/dunstrc

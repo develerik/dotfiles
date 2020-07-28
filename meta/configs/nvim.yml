@@ -1,0 +1,12 @@
+- create:
+    - ~/.config/nvim
+
+- link:
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim/autocommands.vim: nvim/autocommands.vim
+    ~/.config/nvim/filetypes.vim: nvim/filetypes.vim
+    ~/.config/nvim/mappings.vim: nvim/mappings.vim
+    ~/.config/nvim/options.vim: nvim/options.vim
+    ~/.config/nvim/plugins.vim: nvim/plugins.vim
+    ~/.config/nvim/ui.vim: nvim/ui.vim
+    ~/.config/nvim/variables.vim: nvim/variables.vim

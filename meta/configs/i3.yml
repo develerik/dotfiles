@@ -1,0 +1,16 @@
+- create:
+    - ~/.config/i3
+    - ~/.config/i3blocks
+    - ~/.config/i3blocks/blocks
+    - ~/Pictures
+    - ~/Pictures/Wallpapers
+
+- link:
+    ~/.config/i3/config: i3/config
+    ~/.config/i3blocks/config: i3/status_bar
+    ~/.config/i3blocks/blocks/date.sh: i3/blocks/date.sh
+    ~/.config/i3blocks/blocks/keyboard.sh: i3/blocks/keyboard.sh
+    ~/.config/i3blocks/blocks/time.sh: i3/blocks/time.sh
+    ~/.config/i3blocks/blocks/volume.sh: i3/blocks/volume.sh
+    ~/Pictures/Wallpapers/4k_nord.png: i3/wallpapers/4k_nord.png
+    ~/Pictures/Wallpapers/uw5k_nord.png: i3/wallpapers/uw5k_nord.png

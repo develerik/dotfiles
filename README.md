@@ -1,6 +1,6 @@
 # dotfiles
 
-Managed by stow
+Managed by dotbot
 
 ## Table of Contents
 
@@ -16,7 +16,12 @@ Assumes that you have already installed [git](https://git-scm.com) (with lfs).
 
 ```sh
 git clone --recursive https://github.com/develerik/dotfiles.git ~/.dotfiles
-./.dotfiles/install
+
+# Install single configurations
+./.dotfiles/install-standalone <configs...>
+
+# Install a whole profile (and additional configurations)
+./.dotfiles/install-profile <profile> [<configs...>]
 ```
 
 If necessary, special installation instructions are available in the `README.md` file in the package (will be updated soon).

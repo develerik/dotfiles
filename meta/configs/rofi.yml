@@ -1,0 +1,6 @@
+- create:
+    - ~/.config/rofi
+
+- link:
+    ~/.config/rofi/config.rasi: rofi/config.rasi
+    ~/.config/rofi/nord.rasi: rofi/nord.rasi

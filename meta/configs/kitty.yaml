@@ -1,0 +1,6 @@
+- create:
+    - ~/.config/kitty
+
+- link:
+    ~/.config/kitty/kitty.conf: kitty/kitty.conf
+    ~/.config/kitty/nord.conf: kitty/nord.conf
