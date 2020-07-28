@@ -1,23 +1,29 @@
 #!/usr/bin/env bash
 
-function compose() {
-  path="/opt/docker/defs/${1}.yml"
+base=${BASE:-"${HOME}/.docker/definitions"}
+version=${VERSION:-"3.8"}
 
-  if [[ ! -f "${path}" ]]; then
+function compose() {
+  if [[ ! -f "${base}/${1}.yml" ]]; then
     echo "could not find '${1}' stack"
     exit 1
   fi
 
-  docker-compose -f "/opt/docker/defs/${1}.yml" -p "${1}" "${@:2}"
+  docker-compose -f "${base}/${1}.yml" -p "${1}" "${@:2}"
 }
 
 function create-stack() {
-  mkdir -p "/opt/docker/data/${1}"
+  definition="${base}/${1}.yml"
+  {
+    echo "---"
+    echo "version: \"${version}\""
+    echo ""
+    echo "services:"
+  } > "$definition"
 }
 
 function delete-stack() {
-  rm -rf "/opt/docker/defs/${1}.yml"
-  rm -rf "/opt/docker/data/${1}"
+  rm -rf "${base}/${1}.yml"
 }
 
 case "${2}" in
