@@ -1,0 +1,5 @@
+- create:
+    - ~/bin
+
+- link:
+    ~/bin/compose: docker/compose

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+function compose() {
+  path="/opt/docker/defs/${1}.yml"
+
+  if [[ ! -f "${path}" ]]; then
+    echo "could not find '${1}' stack"
+    exit 1
+  fi
+
+  docker-compose -f "/opt/docker/defs/${1}.yml" -p "${1}" "${@:2}"
+}
+
+function create-stack() {
+  mkdir -p "/opt/docker/data/${1}"
+}
+
+function delete-stack() {
+  rm -rf "/opt/docker/defs/${1}.yml"
+  rm -rf "/opt/docker/data/${1}"
+}
+
+case "${2}" in
+  "--create") create-stack "${1}"     ;;
+  "--delete") delete-stack "${1}"     ;;
+  "")         compose "${1}" config   ;;
+  *)          compose "${1}" "${@:2}" ;;
+esac
