@@ -8,7 +8,7 @@ export LESSCHARSET=utf-8
 # paths
 export ANDROID_HOME=$HOME/.android/sdk
 export GOPATH=$HOME/go
-export PATH=$HOME/.local/.bin:$HOME/.dotnet/tools:$HOME/bin:$GOPATH/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.yarn/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.dotnet/tools:$HOME/.bin:$GOPATH/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.yarn/bin:$PATH
 
 # telemetry
 export SAM_CLI_TELEMETRY=0
