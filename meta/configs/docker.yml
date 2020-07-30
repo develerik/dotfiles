@@ -1,7 +1,7 @@
 - create:
     - ~/.docker
     - ~/.docker/definitions
-    - ~/bin
+    - ~/.bin
 
 - link:
-    ~/bin/compose: docker/compose
+    ~/.bin/compose: docker/compose
