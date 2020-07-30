@@ -1,0 +1,5 @@
+- create:
+    - ~/.config/spicetify
+
+- link:
+    ~/.config/spicetify/Themes: spotify/themes

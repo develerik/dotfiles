@@ -1,3 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "spotify/themes"]
+	path = spotify/themes
+	url = https://github.com/morpheusthewhite/spicetify-themes.git
