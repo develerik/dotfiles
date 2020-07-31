@@ -12,4 +12,4 @@ Host *
   KeepAlive yes
 
 # include local configurations
-Include config.d/*
+Include ~/.ssh/config.d/*
