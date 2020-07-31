@@ -1,5 +1,2 @@
-- create:
-    - ~/.config/chromium
-
 - link:
-    ~/.config/chromium/chromium-flags.conf: chromium/chromium-flags.conf
+    ~/.config/chromium-flags.conf: chromium/chromium-flags.conf
