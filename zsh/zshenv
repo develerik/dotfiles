@@ -40,3 +40,6 @@ export TERM="xterm-256color"
 
 # electron
 export ELECTRON_TRASH=trash-cli
+
+# wireshark ssl log
+export SSLKEYLOGFILE=$HOME/.ssl-key.log
