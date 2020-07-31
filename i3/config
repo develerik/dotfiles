@@ -64,7 +64,7 @@ hide_edge_borders       none
 
 ## autostart applications
 exec --no-startup-id setxkbmap -layout us,de -option caps:escape
-exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id /usr/bin/numlockx on
 exec --no-startup-id /usr/bin/light-locker
@@ -157,7 +157,6 @@ workspace $ws5 output $out_left
 
 ## assign windows to dedicated workspaces
 assign [class="jetbrains-.*"]  $ws3
-assign [class="Code"]          $ws3
 assign [class="Lutris"]        $ws4
 assign [class="Steam"]         $ws4
 assign [class="Wine"]          $ws4 # TODO: use a less general rule for games
@@ -178,6 +177,7 @@ for_window [class="File-roller"]                                          floati
 for_window [class="Pcmanfm"]                                              floating enable
 for_window [class="Veracrypt"]                                            floating enable
 for_window [class="Lxappearance"]                                         floating enable
+for_window [class="Blueman-manager"]                                      floating enable
 for_window [class="Evolution-alarm-notify"]                               floating enable
 for_window [class="Evolution" title="Appointment — .*"]                   floating enable
 for_window [class="Evolution" title="Meeting — .*"]                       floating enable
