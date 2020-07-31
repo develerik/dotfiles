@@ -29,6 +29,7 @@
     # icons
     icon_position = left
     max_icon_size = 64
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/devices/
 
     # behavior
     sort = true
