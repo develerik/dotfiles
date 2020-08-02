@@ -1,24 +1,24 @@
 #!/usr/bin/env zsh
 
-_zcompinit() {
-  setopt extendedglob local_options
-  autoload -Uz compinit
-  local zcd=${ZDOTDIR:-$HOME}/.zcompdump
-  local zcdc="$zcd.zwc"
-  # Compile the completion dump to increase startup speed if dump is newer or
-  # missing. Do in background for next time to not affect the current session
-  if [[ -f "$zcd"(#qN.m+1) ]]; then
-    compinit -i -d "$zcd"
-    { command rm -f "$zcdc" && zcompile "$zcd" } &!
-  else
-    compinit -i -C -d "$zcd"
-    { [[ ! -f "$zcdc" || "$zcd" -nt "$zcdc" ]] && command rm -f "$zcdc" && zcompile "$zcd" } &!
-  fi
-}
+# Load and initialize the completion system ignoring insecure directories.
+autoload -Uz compinit && compinit -i
 
-_zcompinit
+setopt complete_in_word # Complete from both ends of a word.
+setopt always_to_end    # Move cursor to the end of a completed word.
+setopt path_dirs        # Perform path search even on command names with slashes.
+setopt auto_menu        # Show completion menu on a succesive tab press.
+setopt auto_list        # Automatically list choices on ambiguous completion.
+setopt auto_param_slash # If completed parameter is a directory, add a trailing slash.
+unsetopt menu_complete  # Do not autoselect the first completion entry.
+unsetopt flow_control   # Disable start/stop characters in shell editor.
 
-zstyle ':completion:*' menu select
-zstyle ':completion::complete:*' gain-privileges 1
+zstyle ':completion::complete:*' use-cache 1
 
-setopt COMPLETE_ALIASES
+# forces zsh to realize new commands
+zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
+
+# rehash if command not found (possibly recently installed)
+zstyle ':completion:*' rehash true
+
+# menu if nb items > 2
+zstyle ':completion:*' menu select=2

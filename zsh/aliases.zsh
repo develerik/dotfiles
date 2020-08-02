@@ -107,3 +107,19 @@ function ssh-tmux() {
 function youtube-mp4() {
   youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' $1
 }
+
+# lazy load nvm
+function nvm() {
+  if [[ -d "${HOME}/.nvm" ]]; then
+    NVM_DIR="${HOME}/.nvm"
+    export NVM_DIR
+    . "${NVM_DIR}/nvm.sh"
+    if [[ -e $HOME/.nvm/alias/default ]]; then
+      PATH="${PATH}:${NVM_DIR}/versions/node/$(cat $NVM_DIR/alias/default)/bin"
+    fi
+    nvm "$@"
+  else
+    echo "nvm is not installed" >&2
+    return 1
+  fi
+}

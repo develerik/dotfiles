@@ -1,45 +1,60 @@
 #!/usr/bin/env zsh
 
+# extend $PATH without duplicates
+_extend_path() {
+  if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
+    export PATH="$1:$PATH"
+  fi
+}
+
 export KEYTIMEOUT=1
 
 # locale
 export LESSCHARSET=utf-8
 
 # paths
-export ANDROID_HOME=$HOME/.android/sdk
-export GOPATH=$HOME/go
-export PATH=$HOME/.local/bin:$HOME/.dotnet/tools:$HOME/.bin:$GOPATH/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.yarn/bin:$PATH
+[[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
+[[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
+[[ -d "$HOME/.dotnet/tools" ]] && _extend_path "$HOME/.dotnet/tools"
+
+[[ -d "$HOME/.go" ]] && export GOPATH="$HOME/.go"; \
+  export GOBIN="$GOPATH/bin"; \
+  _extend_path "$GOBIN"
+
+[[ -d "$HOME/.android/sdk" ]] && export ANDROID_HOME="$HOME/.android/sdk"; \
+  _extend_path "$ANDROID_HOME/emulator"; \
+  _extend_path "$ANDROID_HOME/tools"; \
+  _extend_path "$ANDROID_HOME/tools/bin"; \
+  _extend_path "$ANDROID_HOME/platform-tools"
 
 # telemetry
 export SAM_CLI_TELEMETRY=0
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # starship
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+[[ -f "$HOME/.config/starship/starship.toml" ]] && export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # pager
 export PAGER=/usr/bin/less
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# bat
-export BAT_PAGER="less -RF"
-export BAT_THEME="Nord"
-
 # editor
-export EDITOR=/usr/bin/nvim
-export VISUAL=$EDITOR
+[[ -f "/usr/bin/nvim" ]] && export EDITOR="/usr/bin/nvim"; export VISUAL=$EDITOR
 
 # history
-export HISTFILE=$HOME/.zsh_history
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
 
 # terminal
-export TERMINAL=/usr/bin/kitty
+[[ -f "/usr/bin/kitty" ]] && export TERMINAL="/usr/bin/kitty"
 export TERM="xterm-256color"
 
 # electron
-export ELECTRON_TRASH=trash-cli
+[[ -f "/usr/bin/trash" ]] && export ELECTRON_TRASH="/usr/bin/trash"
 
 # wireshark ssl log
-export SSLKEYLOGFILE=$HOME/.ssl-key.log
+export SSLKEYLOGFILE="$HOME/.ssl-key.log"
+
+# enable colored output from ls, etc. on FreeBSD-based systems
+export CLICOLOR=1

@@ -5,6 +5,7 @@
 - link:
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
+    ~/.zlogin: zsh/zlogin
     ~/.config/starship/starship.toml: starship/starship.toml
     ~/.config/zsh/aliases.zsh: zsh/aliases.zsh
     ~/.config/zsh/bindings.zsh: zsh/bindings.zsh
