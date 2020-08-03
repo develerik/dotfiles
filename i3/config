@@ -162,6 +162,10 @@ assign [class="Steam"]         $ws4
 assign [class="Wine"]          $ws4 # TODO: use a less general rule for games
 assign [class="Spotify"]       $ws5
 
+# force windows to workspaces
+for_window [class="jetbrains-.*"] move to workspace $ws3
+for_window [class="Spotify"]      move to workspace $ws5
+
 ## define floating windows
 for_window [window_role="pop-up"]                                         floating enable
 for_window [window_role="bubble"]                                         floating enable
@@ -190,9 +194,6 @@ for_window [class="jetbrains-.*" title="win0"]                            floati
 for_window [title=".*Android Emulator.*"]                                 floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams"] floating enable
 for_window [instance="origin.exe"]                                        floating enable
-
-# force windows to workspaces
-for_window [class="Spotify"] move to workspace $ws5
 
 ## define mode shortcuts
 bindsym $mod+r   mode $mode_resize
