@@ -19,6 +19,7 @@ nord15: &nord15 "#B48EAD"
 k9s:
   body:
     fgColor: *nord4
+    bgColor: default
     logoColor: *nord7
   info:
     fgColor: *nord7
@@ -50,6 +51,7 @@ k9s:
       filterColor: *nord0
   views:
     charts:
+      bgColor: default
       defaultDialColors:
         - *nord15
         - *nord11
@@ -58,12 +60,15 @@ k9s:
         - *nord11
     table:
       fgColor: *nord4
+      bgColor: default
       cursorColor: *nord8
       header:
         fgColor: *nord7
+        bgColor: default
         sorterColor: *nord7
     xray:
       fgColor: *nord4
+      bgColor: default
       cursorColor: *nord8
       graphicColor: *nord15
     yaml:
@@ -72,6 +77,7 @@ k9s:
       valueColor: *nord5
     logs:
       fgColor: *nord5
+      bgColor: default
       indicator:
         fgColor: *nord0
         bgColor: *nord7
