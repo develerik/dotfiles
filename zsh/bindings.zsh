@@ -2,6 +2,7 @@
 
 # get hashes
 typeset -g -A key
+
 key[Home]="${terminfo[khome]}"
 key[End]="${terminfo[kend]}"
 key[Insert]="${terminfo[kich1]}"
@@ -13,7 +14,6 @@ key[Left]="${terminfo[kcub1]}"
 key[Right]="${terminfo[kcuf1]}"
 key[PageUp]="${terminfo[kpp]}"
 key[PageDown]="${terminfo[knp]}"
-key[ShiftTab]="${terminfo[kcbt]}"
 
 # setup keys
 [[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"      beginning-of-line
@@ -27,18 +27,17 @@ key[ShiftTab]="${terminfo[kcbt]}"
 [[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"     forward-char
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  end-of-buffer-or-history
-[[ -n "${key[ShiftTab]}"  ]] && bindkey -- "${key[ShiftTab]}"  reverse-menu-complete
 
 # finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
   autoload -Uz add-zle-hook-widget
-  function zle_application_mode_start {
-    echoti smkx
+  function zle-line-init {
+    printf '%s' "${terminfo[smkx]}"
   }
-  function zle_application_mode_stop {
-    echoti rmkx
+  function zle-line-finish {
+    printf '%s' "${terminfo[rmkx]}"
   }
-  add-zle-hook-widget -Uz zle-line-init   zle_application_mode_start
-  add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+  zle -N zle-line-init
+  zle -N zle-line-finish
 fi

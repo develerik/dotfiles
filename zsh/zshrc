@@ -5,6 +5,11 @@ if [ -t 0 ]; then
 	export PINENTRY_USER_DATA=USE_TTY=1
 fi
 
+################################################################################
+# environment                                                                  #
+################################################################################
+[[ -f "/usr/bin/kitty" ]] && export TERMINAL="/usr/bin/kitty"
+
 # load plugins
 . $HOME/.config/zsh/plugins.zsh
 

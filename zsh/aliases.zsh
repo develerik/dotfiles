@@ -1,35 +1,73 @@
 #!/usr/bin/env zsh
 
-# better ls
+################################################################################
+# ls                                                                           #
+################################################################################
+
 alias ls='exa'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls -T'
 
-# package management
-alias pm='pikaur'
+################################################################################
+# grep                                                                         #
+################################################################################
 
-# directories
-alias mkdir='mkdir -p'
+# grep with colors and ignore common directories
+alias grep='grep --color=auto --exclude-dir=".git" --exclude-dir="node_modules"'
+alias fgrep='fgrep --color=auto --exclude-dir=".git" --exclude-dir="node_modules"'
+alias egrep='egrep --color=auto --exclude-dir=".git" --exclude-dir="node_modules"'
 
-# grep
-alias grep='grep --color'
-alias fgrep='fgrep --color'
-alias egrep='egrep --color'
+################################################################################
+# editor                                                                       #
+################################################################################
 
-# clear
-alias cls='clear'
-
-# files
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='trash'
-
-# neovim
 alias vimdiff='nvim -d'
 alias vim='nvim'
 alias vi='nvim'
+
+################################################################################
+# core                                                                         #
+################################################################################
+
+# use `trash` program instead of built-in irrecoverable way to delete nodes
+[[ -f "/usr/bin/trash" ]] && alias rm='trash'
+
+# move nodes with interactive mode and extra verbosity
+alias mv='mv -iv'
+
+# copy nodes with interactive mode and extra verbosity
+alias cp='cp -iv'
+
+# link nodes with interactive mode and extra verbosity
+alias ln='ln -iv'
+
+# make missing parent directories when creating folders
+alias mkdir='mkdir -p'
+
+# make directory and cd
+function mcd() {
+  [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+}
+
+# display size of files and folders under current directory
+alias du='du --max-depth=1 --si'
+
+# display all disk usage statistics with SI units and FS types
+alias df='df --all --si --print-type' 
+
+################################################################################
+# misc                                                                         #
+################################################################################
+
+alias g='git'
+
+# package management
+alias pm='pikaur'
+
+# clear
+alias cls='clear'
 
 # 1password
 alias op-login='eval $(op signin my)'
@@ -39,12 +77,15 @@ alias rsync='noglob rsync'
 alias git='noglob git'
 alias scp='noglob scp'
 
-# kittens
-ssh() {
-  kitty +kitten ssh "$@"
+# youtube-dl
+function youtube-mp4() {
+  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' $1
 }
 
-# rsync actions
+################################################################################
+# rsync                                                                        #
+################################################################################
+
 function cpr() {
   rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
 }
@@ -52,7 +93,10 @@ function mvr() {
   rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
 }
 
-# archives
+################################################################################
+# archives                                                                     #
+################################################################################
+
 function compress() {
   tar cvzf $1.tar.gz $1
 }
@@ -78,11 +122,10 @@ function extract() {
   fi
 }
 
-function mcd() {
-  [[ -n "$1" ]] && mkdir -p -p "$1" && builtin cd "$1"
-}
+################################################################################
+# openvpn                                                                      #
+################################################################################
 
-# openvpn
 function ovpn-start() {
   if [[ ! -f /etc/openvpn/client/$1.conf ]]; then
     echo "Configuration not found"
@@ -98,17 +141,22 @@ function ovpn-stop() {
   sudo systemctl stop "openvpn-client@${1}"
 }
 
-# ssh + tmux
+################################################################################
+# ssh                                                                          #
+################################################################################
+
+function ssh() {
+  kitty +kitten ssh "$@"
+}
+
 function ssh-tmux() {
   ssh -t $@ "tmux attach || tmux new -s $(whoami)"
 }
 
-# youtube-dl
-function youtube-mp4() {
-  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' $1
-}
+################################################################################
+# nvm                                                                          #
+################################################################################
 
-# lazy load nvm
 function nvm() {
   if [[ -d "${HOME}/.nvm" ]]; then
     NVM_DIR="${HOME}/.nvm"

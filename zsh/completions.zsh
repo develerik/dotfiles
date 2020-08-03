@@ -12,7 +12,11 @@ setopt auto_param_slash # If completed parameter is a directory, add a trailing 
 unsetopt menu_complete  # Do not autoselect the first completion entry.
 unsetopt flow_control   # Disable start/stop characters in shell editor.
 
+# use cache
 zstyle ':completion::complete:*' use-cache 1
+
+# use completion menu for completion when available and items > 2
+zstyle ':completion:*' menu select=2
 
 # forces zsh to realize new commands
 zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
@@ -20,5 +24,5 @@ zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _app
 # rehash if command not found (possibly recently installed)
 zstyle ':completion:*' rehash true
 
-# menu if nb items > 2
-zstyle ':completion:*' menu select=2
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending

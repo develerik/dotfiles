@@ -7,19 +7,31 @@ _extend_path() {
   fi
 }
 
-export KEYTIMEOUT=1
+################################################################################
+# locale                                                                       #
+################################################################################
 
-# locale
-export LESSCHARSET=utf-8
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_TIME="de_DE.UTF-8"
+export LC_MONETARY="de_DE.UTF-8"
+export LC_PAPER="de_DE.UTF-8"
+export LC_TELEPHONE="de_DE.UTF-8"
+export LC_MEASUREMENT="de_DE.UTF-8"
 
-# paths
+export LESSCHARSET="utf-8"
+
+################################################################################
+# paths                                                                        #
+################################################################################
+
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
 [[ -d "$HOME/.dotnet/tools" ]] && _extend_path "$HOME/.dotnet/tools"
 
-[[ -d "$HOME/.go" ]] && export GOPATH="$HOME/.go"; \
-  export GOBIN="$GOPATH/bin"; \
-  _extend_path "$GOBIN"
+################################################################################
+# android                                                                      #
+################################################################################
 
 [[ -d "$HOME/.android/sdk" ]] && export ANDROID_HOME="$HOME/.android/sdk"; \
   _extend_path "$ANDROID_HOME/emulator"; \
@@ -27,27 +39,68 @@ export LESSCHARSET=utf-8
   _extend_path "$ANDROID_HOME/tools/bin"; \
   _extend_path "$ANDROID_HOME/platform-tools"
 
-# telemetry
-export SAM_CLI_TELEMETRY=0
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
+################################################################################
+# golang                                                                       #
+################################################################################
+
+[[ -d "$HOME/.go" ]] && \
+  export GOPATH="$HOME/.go"; \
+  export GOBIN="$GOPATH/bin"; \
+  export CGO_ENABLED="0"; \
+  export GO111MODULE="auto"; \
+  _extend_path "$GOBIN"
+
+################################################################################
+# telemetry                                                                    #
+################################################################################
+
+export SAM_CLI_TELEMETRY="0"
+export DOTNET_CLI_TELEMETRY_OPTOUT="1"
+
+################################################################################
+# history                                                                      #
+################################################################################
+
+export HISTFILE="$HOME/.zhistory"
+export HISTSIZE="20000"
+export SAVEHIST="$HISTSIZE"
+
+################################################################################
+# pager                                                                        #
+################################################################################
+
+export PAGER="/usr/bin/less"
+
+################################################################################
+# preferred text editor                                                        #
+################################################################################
+
+export EDITOR="/usr/bin/nvim"
+export VISUAL="$EDITOR"
+
+################################################################################
+# colored man pages                                                            #
+################################################################################
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[38;33;246m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+
+################################################################################
+# misc                                                                         #
+################################################################################
+
+# the time the shell waits, for another key to be pressed in milliseconds
+export KEYTIMEOUT=1
 
 # starship
 [[ -f "$HOME/.config/starship/starship.toml" ]] && export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# pager
-export PAGER=/usr/bin/less
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# editor
-[[ -f "/usr/bin/nvim" ]] && export EDITOR="/usr/bin/nvim"; export VISUAL=$EDITOR
-
-# history
-export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=20000
-export SAVEHIST=$HISTSIZE
-
 # terminal
-[[ -f "/usr/bin/kitty" ]] && export TERMINAL="/usr/bin/kitty"
 export TERM="xterm-256color"
 
 # electron
