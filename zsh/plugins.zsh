@@ -9,14 +9,20 @@ fi
 # essential
 source ~/.zinit/zinit.zsh
 
-# zsh-autosuggestions
-zinit ice wait lucid atload'!_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
+################################################################################
+# productive tools                                                             #
+################################################################################
 
-# tab completions
-zinit ice wait lucid blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
+# fast-syntax-highlighting, zsh-completions, zsh-autosuggestions
+zinit wait lucid for \
+  atinit="ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+  zdharma/fast-syntax-highlighting \
+  blockf \
+  zsh-users/zsh-completions \
+  atload="!_zsh_autosuggest_start" \
+  zsh-users/zsh-autosuggestions
 
-# fast-syntax-highlighting
-zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
-zinit light zdharma/fast-syntax-highlighting
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
