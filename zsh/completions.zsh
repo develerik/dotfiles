@@ -2,6 +2,7 @@
 
 # Load and initialize the completion system ignoring insecure directories.
 autoload -Uz compinit && compinit -i
+autoload -Uz bashcompinit && bashcompinit -i
 
 setopt complete_in_word # Complete from both ends of a word.
 setopt always_to_end    # Move cursor to the end of a completed word.
@@ -13,10 +14,10 @@ unsetopt menu_complete  # Do not autoselect the first completion entry.
 unsetopt flow_control   # Disable start/stop characters in shell editor.
 
 # use cache
-zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion::complete:*' use-cache on
 
 # use completion menu for completion when available and items > 2
-zstyle ':completion:*' menu select=2
+zstyle ':completion:*:*:*:*:*' menu select=2
 
 # forces zsh to realize new commands
 zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
