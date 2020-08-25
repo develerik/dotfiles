@@ -24,6 +24,10 @@ k9s:
   info:
     fgColor: *nord7
     sectionColor: *nord4
+  dialog:
+    bgColor: default
+    labelFgColor: *nord7
+    buttonFocusBgColor: *nord7
   frame:
     border:
       focusColor: *nord7
