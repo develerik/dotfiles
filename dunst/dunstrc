@@ -69,7 +69,7 @@
 [urgency_critical]
     background = "#bf616a"
     foreground = "#eceff4"
-    timeout = 10
+    timeout = 0
 
 [Spotify]
     background = "#1db954"
