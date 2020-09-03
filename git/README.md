@@ -45,3 +45,23 @@
 | `git reword <message>`    | Changes the commit message of the last commit                                        |
 | `git oops [<message>]`    | Appends changes to the last commit (optionally changes the commit message)           |
 
+## Identities
+
+Identities can be configured in the `~/.config/git/identities` file.
+
+### Example
+
+```plain
+[user "example"]
+	name = "Example User"
+	email = "foo.bar@example.com"
+	signingkey = "0123456789"
+```
+
+```shell
+# inside git repository execute:
+git identity example
+```
+
+Source: [Setting Up Git Identities](https://micah.soy/posts/setting-up-git-identities/)
+
