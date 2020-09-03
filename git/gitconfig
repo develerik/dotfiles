@@ -115,7 +115,7 @@
 	# show all tags
 	tags = "tag -n1 --list"
 	# end of work: push wip commit
-	eow = "!git add -A; git commit -am ':wrench: [WIP] Done for today, cya tomorrow [ci skip] :wave:'; git push"
+	eow = "!git add -A; git commit -am '[WIP] Done for today, cya tomorrow [skip ci]'; git push"
 	# faster commit
 	c = "commit -m"
 	# faster checkout
