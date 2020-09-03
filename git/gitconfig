@@ -89,7 +89,7 @@
 	# allow the use of identities
 	identity = "!git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 	# show all aliases
-	aliases = !git config --get-regexp \"alias.*\"
+	aliases = "--list-cmds=alias"
 	# show a graph summay
 	ll = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)[%an]%Creset'"
 	# publish a new git branch on the remote
