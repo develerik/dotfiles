@@ -35,7 +35,7 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = false
+disabled = true
 
 [memory_usage]
 disabled = true
