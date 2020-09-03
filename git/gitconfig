@@ -1,15 +1,3 @@
-# include local configuration
-[include]
-	path = .config/git/config
-
-# include local identities
-[include]
-	path = .config/git/identities
-
-# include local aliases
-[include]
-	path = .config/git/aliases
-
 [core]
 	# use neovim as default editor
 	editor = nvim
@@ -136,3 +124,15 @@
 [user]
 	# use git identities
 	useConfigOnly = true
+
+# include local configuration
+[include]
+	path = .config/git/config
+
+# include local identities
+[include]
+	path = .config/git/identities
+
+# include local aliases
+[include]
+	path = .config/git/aliases
