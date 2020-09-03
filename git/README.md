@@ -2,6 +2,7 @@
 
 ## Prerequisites
 
+- [1password-cli](https://1password.com/downloads/command-line)
 - [neovim](https://neovim.io)
 - [Visual Studio Code](https://code.visualstudio.com)
 - [git-lfs](https://git-lfs.github.com)
@@ -19,11 +20,11 @@
 - Uses recursive submodules by default
 - Simplifies the output of `git status`
 - Uses colorful UI if possible
+- Uses 1password as credentials helper **(currently cannot store new credentials or login automatically)**
 - Uses short hash in `git log` if possible
 - Registers VS Code and NeoVim as external diff and merge tools (default: VS Code)
 - Improves diff for `.wasm` files
 - Registers some useful aliases
-- **warning**: Caches credentials for 1 day
 
 ## Aliases
 
@@ -64,4 +65,3 @@ git identity example
 ```
 
 Source: [Setting Up Git Identities](https://micah.soy/posts/setting-up-git-identities/)
-

@@ -33,8 +33,8 @@
 	ui = auto
 
 [credential]
-	# use cache helper and increase timeout (1 day)
-	helper = cache --timeout=86400
+	# use 1password as credential store
+	helper = !git-credential-1password
 
 [log]
 	# use abbrev SHAs whenever possible/relevant instead of full 40 chars
