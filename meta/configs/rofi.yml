@@ -1,6 +1,7 @@
 - create:
     - ~/.config/rofi
+    - ~/.config/rofi/themes
 
 - link:
     ~/.config/rofi/config.rasi: rofi/config.rasi
-    ~/.config/rofi/nord.rasi: rofi/nord.rasi
+    ~/.config/rofi/themes/nord.rasi: rofi/themes/nord.rasi
