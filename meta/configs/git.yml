@@ -4,4 +4,3 @@
 - link:
     ~/.gitattributes: git/gitattributes
     ~/.gitconfig: git/gitconfig
-    ~/.bin/git-credential-1password: git/git-credential-1password.py

@@ -7,6 +7,7 @@
 - [Visual Studio Code](https://code.visualstudio.com)
 - [git-lfs](https://git-lfs.github.com)
 - [wabt](https://github.com/WebAssembly/wabt)
+- [git-credential-1password](https://github.com/develerik/git-credential-1password)
 
 ## Features
 
@@ -20,7 +21,7 @@
 - Uses recursive submodules by default
 - Simplifies the output of `git status`
 - Uses colorful UI if possible
-- Uses 1password as credentials helper **(currently cannot store new credentials or login automatically)**
+- Uses 1password as credentials helper **(WIP)**
 - Uses short hash in `git log` if possible
 - Registers VS Code and NeoVim as external diff and merge tools (default: VS Code)
 - Improves diff for `.wasm` files

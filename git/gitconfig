@@ -34,7 +34,7 @@
 
 [credential]
 	# use 1password as credential store
-	helper = !git-credential-1password
+	helper = !git-credential-1password -c 900
 
 [log]
 	# use abbrev SHAs whenever possible/relevant instead of full 40 chars
@@ -105,7 +105,9 @@
 	# end of work: push wip commit
 	eow = "!git add -A; git commit -am '[WIP] Done for today, cya tomorrow [skip ci]'; git push"
 	# faster commit
-	c = "commit -m"
+  c = "commit -m"
+  # faster commit (with sign)
+  cs = "commit --gpg-sign -m"
 	# faster checkout
 	cb = "checkout -b"
 	# undo last commit
