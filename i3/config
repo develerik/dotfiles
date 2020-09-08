@@ -96,6 +96,7 @@ floating_modifier $mod
 bindsym  $mod+Shift+q     [con_id="__focused__" title="^(?!scratchterm).*$"] kill
 bindsym  $mod+f           fullscreen toggle
 bindsym  $mod+Shift+space floating   toggle
+bindsym  $mod+$alt+space  sticky     toggle
 bindsym  $mod+Shift+n     exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 bindsym  $mod+Shift+c     reload
 bindsym  $mod+Shift+r     exec killall dunst; exec killall picom; restart
