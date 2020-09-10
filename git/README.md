@@ -42,7 +42,9 @@
 | `git tags`                | Lists all tags                                                                       |
 | `git eow`                 | Stages all files, makes a wip commit and pushes the changes to the remote            |
 | `git c <message>`         | Faster git commit                                                                    |
+| `git cs <message>`        | Faster git commit (signed)                                                           |
 | `git cb <branch>`         | Creates a new branch and checks it out                                               |
+| `git pf`                  | Safe force push (`--force-with-lease`)                                               |
 | `git undo`                | Removes the last commit                                                              |
 | `git reword <message>`    | Changes the commit message of the last commit                                        |
 | `git oops [<message>]`    | Appends changes to the last commit (optionally changes the commit message)           |

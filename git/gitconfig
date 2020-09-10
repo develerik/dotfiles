@@ -34,7 +34,7 @@
 
 [credential]
 	# use 1password as credential store
-	helper = !git-credential-1password -c 900
+	helper = !~/Projects/develerik/git-credential-1password/bin/git-credential-1password -c 900
 
 [log]
 	# use abbrev SHAs whenever possible/relevant instead of full 40 chars
@@ -108,6 +108,8 @@
   c = "commit -m"
   # faster commit (with sign)
   cs = "commit --gpg-sign -m"
+	# safer force push
+	pf = "push --force-with-lease"
 	# faster checkout
 	cb = "checkout -b"
 	# undo last commit
