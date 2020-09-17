@@ -11,5 +11,4 @@ configuration {
   drun-show-actions: true;
   parse-known-hosts: false;
   parse-hosts: false;
-  matching: "fuzzy";
 }
