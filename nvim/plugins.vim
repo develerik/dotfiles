@@ -33,11 +33,11 @@ Plug 'mhinz/vim-startify'
 " git plugins
 Plug 'mhinz/vim-signify'
 
-" javascript plugins
-Plug 'pangloss/vim-javascript'
+" language plugins
+Plug 'editorconfig/editorconfig-vim'
 
 " ui plugins
-" Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -83,16 +83,6 @@ function! StartifyEntryFormat()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" netrw
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:netrw_banner    = 0
-let g:netrw_liststyle = 3
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_preview   = 1
-let g:netrw_alto      = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -128,7 +118,7 @@ let g:lightline = {
       \ },
       \ }
 
-autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+au BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " signify
@@ -137,17 +127,19 @@ autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 set updatetime=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" javascript
+" editorconfig
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:javascript_plugin_jsdoc = 1
+let g:EditorConfig_exclude_patterns = ['scp://.*']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:NERDTreeDirArrowExpandable = ''
-" let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable  = ''
+let g:NERDTreeDirArrowCollapsible = ''
 
-" map <C-n> :NERDTreeToggle<CR>
-" au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:webdevicons_enable_nerdtree = 1
+
+au VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
