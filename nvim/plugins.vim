@@ -26,6 +26,7 @@ Plug 'junegunn/vim-plug'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 
 Plug 'mhinz/vim-startify'
 
@@ -81,6 +82,15 @@ function! StartifyEntryFormat()
   return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" netrw
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:netrw_banner    = 0
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_preview   = 1
+let g:netrw_alto      = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " theme
@@ -99,12 +109,26 @@ augroup nord-theme-overrides
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" lightline
+" lightline + lightline-bufferline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:lightline#bufferline#show_number     = 1
+let g:lightline#bufferline#enable_devicons = 1
+
 let g:lightline = {
-  \ 'colorscheme': 'nord',
-  \ }
+      \ 'colorscheme': 'nord',
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel',
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \ },
+      \ }
+
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " signify
