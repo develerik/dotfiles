@@ -41,6 +41,48 @@ Plug 'preservim/nerdtree'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-devicons
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" reload icons after init source
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" startify
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:startify_files_number           = 10
+let g:startify_padding_left           = 3
+let g:startify_fortune_use_unicode    = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_session_remove_lines   = ['setlocal', 'winheight']
+let g:startify_session_sort           = 1
+let g:startify_update_oldfiles        = 1
+let g:startify_change_to_dir          = 1
+
+let g:startify_bookmarks = [
+      \ { 'c': '~/.config'   },
+      \ { 'd': '~/.dotfiles' },
+      \ { 'p': '~/Projects'  },
+      \ ]
+
+let g:startify_lists = [
+      \ { 'type': 'bookmarks', 'header': ["  Bookmarks"]               },
+      \ { 'type': 'files',     'header': ["  MRU Files"]               },
+      \ { 'type': 'dir',       'header': ["  MRU Files in ". getcwd()] },
+      \ { 'type': 'commands',  'header': ["  Commands"]                },
+      \ ]
+
+" icons
+let g:webdevicons_enable_startify = 1
+function! StartifyEntryFormat()
+  return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -56,7 +98,6 @@ augroup nord-theme-overrides
   autocmd ColorScheme nord highlight Normal guibg=NONE ctermbg=NONE
 augroup END
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,13 +112,11 @@ let g:lightline = {
 
 set updatetime=100
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " javascript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:javascript_plugin_jsdoc = 1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree
