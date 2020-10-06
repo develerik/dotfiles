@@ -37,7 +37,7 @@ Plug 'mhinz/vim-signify'
 Plug 'pangloss/vim-javascript'
 
 " ui plugins
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -146,8 +146,8 @@ let g:javascript_plugin_jsdoc = 1
 " nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
 
-map <C-n> :NERDTreeToggle<CR>
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" map <C-n> :NERDTreeToggle<CR>
+" au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
