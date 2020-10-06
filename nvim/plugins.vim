@@ -38,6 +38,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 " ui plugins
 Plug 'preservim/nerdtree'
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
 
@@ -143,3 +144,10 @@ let g:webdevicons_enable_nerdtree = 1
 
 au VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" hexokinase
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:Hexokinase_optInPatterns = ['full_hex', 'triple_hex', 'rgba']
+
