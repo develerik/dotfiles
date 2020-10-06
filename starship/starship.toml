@@ -4,10 +4,16 @@ symbol = " "
 [battery]
 disabled = true
 
+[cmake]
+disabled= true
+
 [conda]
 disabled= true
 
 [crystal]
+disabled= true
+
+[dart]
 disabled= true
 
 [elixir]
@@ -19,6 +25,9 @@ disabled= true
 [erlang]
 disabled= true
 
+[gcloud]
+disabled= true
+
 [git_branch]
 symbol = " "
 
@@ -27,6 +36,9 @@ symbol = " "
 
 [haskell]
 disabled = true
+
+[helm]
+disabled= true
 
 [java]
 disabled = true
@@ -49,6 +61,9 @@ symbol = " "
 [package]
 symbol = " "
 
+[perl]
+disabled= true
+
 [php]
 disabled = true
 
@@ -62,6 +77,12 @@ disabled = true
 disabled = true
 
 [singularity]
+disabled = true
+
+[status]
+disabled = true
+
+[swift]
 disabled = true
 
 [terraform]
