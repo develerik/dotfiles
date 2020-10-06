@@ -1,26 +1,19 @@
 #!usr/bin/env zsh
 
-# check if zinit is installed
-if [[ ! -d ~/.zinit ]]; then
-  git clone https://github.com/zdharma/zinit.git ~/.zinit
-  source ~/.zinit/zinit.zsh && zinit self-update
-fi
+plugins_dir=$HOME/.config/zsh/plugins
 
-# essential
-source ~/.zinit/zinit.zsh
+zplugins=(
+  fast-syntax-highlighting
+  zsh-completions
+  zsh-autosuggestions
+)
 
-################################################################################
-# productive tools                                                             #
-################################################################################
-
-# fast-syntax-highlighting, zsh-completions, zsh-autosuggestions
-zinit wait lucid for \
-  atinit="ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-  zdharma/fast-syntax-highlighting \
-  blockf \
-  zsh-users/zsh-completions \
-  atload="!_zsh_autosuggest_start" \
-  zsh-users/zsh-autosuggestions
+for p in $zplugins; do
+  p_path=$plugins_dir/$p/$p.plugin.zsh
+  if [ -e $p_path ]; then
+    source $p_path
+  fi
+done
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20

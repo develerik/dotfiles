@@ -12,3 +12,4 @@
     ~/.config/zsh/options.zsh: zsh/options.zsh
     ~/.config/zsh/completions.zsh: zsh/completions.zsh
     ~/.config/zsh/plugins.zsh: zsh/plugins.zsh
+    ~/.config/zsh/plugins: zsh/plugins

@@ -4,3 +4,12 @@
 [submodule "spotify/themes"]
 	path = spotify/themes
 	url = https://github.com/morpheusthewhite/spicetify-themes.git
+[submodule "zsh/plugins/fast-syntax-highlighting"]
+	path = zsh/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
