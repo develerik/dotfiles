@@ -67,7 +67,7 @@ alias g='git'
 alias pm='pikaur'
 
 # clear
-alias cls='clear'
+alias cls="printf '\033[2J\033[3J\033[1;1H'"
 
 # 1password
 alias op-login='eval $(op signin my)'
