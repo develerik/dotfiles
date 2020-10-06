@@ -17,7 +17,7 @@ endtry
 
 set background=dark
 
-" set utf8 as standard encoding and en_US as the standard language
+" set utf8 as standard encoding
 set encoding=utf8
 
 " use unix as the standard file type

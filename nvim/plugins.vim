@@ -1,8 +1,16 @@
-" download vim-plug if not already installed
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo '~/.local/share/nvim/site/autoload/plug.vim' --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+" setup vim-plug
+" TODO: consider adding as submodule
+let vimplug_exists=expand('~/.local/share/nvim/site/autoload/plug.vim')
+if !filereadable(vimplug_exists)
+  if !executable("curl")
+    echoerr "You have to install curl or first install vim-plug by yourself!"
+    execute "q!"
+  endif
+
+  echo "Installing vim-plug..."
+  echo ""
+  silent exec "!curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -18,9 +26,16 @@ Plug 'junegunn/vim-plug'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
+
 Plug 'mhinz/vim-startify'
+
+" git plugins
 Plug 'mhinz/vim-signify'
+
+" javascript plugins
 Plug 'pangloss/vim-javascript'
+
+" ui plugins
 Plug 'preservim/nerdtree'
 
 call plug#end()
