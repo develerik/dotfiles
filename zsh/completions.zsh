@@ -27,3 +27,12 @@ zstyle ':completion:*' rehash true
 
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
+
+# Load completions from commands
+if (($+commands[op])); then
+  eval "$(op completion zsh)"; compdef _op op
+fi
+
+if (($+commands[pipx])); then
+  eval "$(register-python-argcomplete pipx)"
+fi
