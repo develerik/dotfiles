@@ -7,7 +7,7 @@
 
   # Compile zcompdump, if modified, to increase startup speed.
   zcompdump="${HOME}/.zcompdump"
-  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc" ]]; then
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
     zrecompile -pq "$zcompdump"
   fi
 
