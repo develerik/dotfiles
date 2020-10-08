@@ -6,6 +6,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
     ~/.zlogin: zsh/zlogin
+    ~/.zprofile: zsh/zprofile
     ~/.config/starship/starship.toml: starship/starship.toml
     ~/.config/zsh/aliases.zsh: zsh/aliases.zsh
     ~/.config/zsh/bindings.zsh: zsh/bindings.zsh
@@ -13,3 +14,4 @@
     ~/.config/zsh/completions.zsh: zsh/completions.zsh
     ~/.config/zsh/plugins.zsh: zsh/plugins.zsh
     ~/.config/zsh/plugins: zsh/plugins
+    ~/.config/zsh/autoload: zsh/autoload

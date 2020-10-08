@@ -19,6 +19,16 @@ fi
 . $HOME/.config/zsh/completions.zsh
 . $HOME/.config/zsh/options.zsh
 
+# autoload functions
+autoload_fpath="${HOME}/.config/zsh/autoload"
+fpath=($autoload_fpath $fpath)
+if [[ -d "${autoload_fpath}" ]]; then
+  for func in $autoload_fpath/*; do
+    autoload -Uz ${func:t}
+  done
+fi
+unset autoload_fpath
+
 # load local configuration
 if [[ -f $HOME/.config/zsh/local.zsh ]]; then
   . $HOME/.config/zsh/local.zsh
