@@ -36,3 +36,15 @@ fi
 if (($+commands[pipx])); then
   eval "$(register-python-argcomplete pipx)"
 fi
+
+if (($+commands[aws])); then
+  . aws_zsh_completer.sh
+fi
+
+if (($+commands[az])); then
+  eval "$(register-python-argcomplete az)"
+fi
+
+if (($+commands[pipenv])); then
+  eval "$(pipenv --completion)"
+fi
