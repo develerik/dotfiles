@@ -19,22 +19,21 @@ _extend_path() {
 # android                                                                      #
 ################################################################################
 
-[[ -d "$HOME/.android/sdk" ]] && export ANDROID_HOME="$HOME/.android/sdk"; \
-  _extend_path "$ANDROID_HOME/emulator"; \
-  _extend_path "$ANDROID_HOME/tools"; \
-  _extend_path "$ANDROID_HOME/tools/bin"; \
-  _extend_path "$ANDROID_HOME/platform-tools"
+[[ -d "$HOME/.android/sdk" ]] && export ANDROID_HOME="$HOME/.android/sdk"
+[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/emulator"
+[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/tools"
+[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/tools/bin"
+[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/platform-tools"
 
 ################################################################################
 # golang                                                                       #
 ################################################################################
 
-[[ -d "$HOME/.go" ]] && \
-  export GOPATH="$HOME/.go"; \
-  export GOBIN="$GOPATH/bin"; \
-  export CGO_ENABLED="0"; \
-  export GO111MODULE="auto"; \
-  _extend_path "$GOBIN"
+export GOPATH="$HOME/.go";
+[[ -d "$HOME/.go" ]] && export GOBIN="$GOPATH/bin"
+[[ -d "$HOME/.go" ]] && export CGO_ENABLED="0"
+[[ -d "$HOME/.go" ]] && export GO111MODULE="auto"
+[[ -d "$HOME/.go" ]] && _extend_path "$GOBIN"
 
 ################################################################################
 # telemetry                                                                    #
