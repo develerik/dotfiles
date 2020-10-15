@@ -1,5 +1,7 @@
 #!usr/bin/env zsh
 
+zmodload zsh/zprof
+
 if [ -t 0 ]; then
 	export GPG_TTY=$TTY
 	export PINENTRY_USER_DATA=USE_TTY=1
@@ -44,4 +46,3 @@ eval "$(starship init zsh)"
 if [[ -f $HOME/.config/zsh/local.zsh ]]; then
   . $HOME/.config/zsh/local.zsh
 fi
-
