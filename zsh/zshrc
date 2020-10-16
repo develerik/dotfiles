@@ -14,7 +14,7 @@ fi
 . $HOME/.config/zsh/plugins.zsh
 
 # load configuration
-. $HOME/.config/zsh/aliases.zsh
+. $HOME/.config/shell/aliases.sh
 . $HOME/.config/zsh/bindings.zsh
 . $HOME/.config/zsh/completions.zsh
 . $HOME/.config/zsh/options.zsh

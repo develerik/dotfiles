@@ -1,15 +1,21 @@
 - create:
     - ~/.config/starship
     - ~/.config/zsh
+    - ~/.config/shell
+    - ~/.config/.bin
 
 - link:
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
     ~/.zlogin: zsh/zlogin
     ~/.config/starship/starship.toml: starship/starship.toml
-    ~/.config/zsh/aliases.zsh: zsh/aliases.zsh
     ~/.config/zsh/bindings.zsh: zsh/bindings.zsh
     ~/.config/zsh/options.zsh: zsh/options.zsh
     ~/.config/zsh/completions.zsh: zsh/completions.zsh
     ~/.config/zsh/plugins.zsh: zsh/plugins.zsh
     ~/.config/zsh/plugins: zsh/plugins
+    ~/.config/shell/aliases.sh: shell/aliases.sh
+    ~/.bin/compress: shell/bin/compress
+    ~/.bin/extract: shell/bin/extract
+    ~/.bin/mcd: shell/bin/mcd
+    ~/.bin/ssh-tmux: shell/bin/ssh-tmux

@@ -8,6 +8,8 @@ if [ -t 0 ]; then
 	export PINENTRY_USER_DATA=USE_TTY=1
 fi
 
+source $HOME/.config/shell/aliases.sh
+
 # load local configuration
 if [[ -f $HOME/.config/bash/local.sh ]]; then
   . $HOME/.config/bash/local.sh
