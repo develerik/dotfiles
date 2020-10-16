@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-tar cvzf $1.tar.gz $1

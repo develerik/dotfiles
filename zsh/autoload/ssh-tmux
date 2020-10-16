@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-ssh -t $@ "tmux attach || tmux new -s $(whoami)"
