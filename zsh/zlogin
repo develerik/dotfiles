@@ -13,7 +13,6 @@
 
   # zcompile .zshrc
   zrecompile -pq "${HOME}/.zshrc"
-  zrecompile -pq "${HOME}/.zprofile"
   zrecompile -pq "${HOME}/.zshenv"
 
   # recompile all zsh

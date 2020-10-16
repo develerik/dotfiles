@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-[[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
