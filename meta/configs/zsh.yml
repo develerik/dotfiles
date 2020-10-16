@@ -1,14 +1,13 @@
 - create:
-    - ~/.config/starship
     - ~/.config/zsh
     - ~/.config/shell
     - ~/.config/.bin
 
 - link:
     ~/.zshrc: zsh/zshrc
-    ~/.zshenv: zsh/zshenv
+    ~/.zshenv: shell/environment.sh
     ~/.zlogin: zsh/zlogin
-    ~/.config/starship/starship.toml: starship/starship.toml
+    ~/.config/shell/starship.toml: starship/starship.toml
     ~/.config/zsh/bindings.zsh: zsh/bindings.zsh
     ~/.config/zsh/options.zsh: zsh/options.zsh
     ~/.config/zsh/completions.zsh: zsh/completions.zsh

@@ -1,11 +1,5 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
-# extend $PATH without duplicates
-_extend_path() {
-  if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
-    export PATH="$1:$PATH"
-  fi
-}
 
 ################################################################################
 # locale                                                                       #
@@ -28,29 +22,24 @@ export LESSCHARSET="utf-8"
 # paths                                                                        #
 ################################################################################
 
-[[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
-[[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
-[[ -d "$HOME/.dotnet/tools" ]] && _extend_path "$HOME/.dotnet/tools"
+export PATH="$PATH:$HOME/.bin:$HOME/.local/bin:$HOME/.dotnet/tools"
 
 ################################################################################
 # android                                                                      #
 ################################################################################
 
-[[ -d "$HOME/.android/sdk" ]] && export ANDROID_HOME="$HOME/.android/sdk"
-[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/emulator"
-[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/tools"
-[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/tools/bin"
-[[ -d "$HOME/.android/sdk" ]] && _extend_path "$ANDROID_HOME/platform-tools"
+export ANDROID_HOME="$HOME/.android/sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools"
 
 ################################################################################
 # golang                                                                       #
 ################################################################################
 
-export GOPATH="$HOME/.go";
-[[ -d "$HOME/.go" ]] && export GOBIN="$GOPATH/bin"
-[[ -d "$HOME/.go" ]] && export CGO_ENABLED="0"
-[[ -d "$HOME/.go" ]] && export GO111MODULE="auto"
-[[ -d "$HOME/.go" ]] && _extend_path "$GOBIN"
+export GOPATH="$HOME/.go"
+export GOBIN="$GOPATH/bin"
+export CGO_ENABLED="0"
+export GO111MODULE="auto"
+export PATH="$PATH:$GOBIN"
 
 ################################################################################
 # telemetry                                                                    #
@@ -103,13 +92,13 @@ export WEECHAT_HOME="$HOME/.config/weechat"
 export KEYTIMEOUT=1
 
 # starship
-[[ -f "$HOME/.config/starship/starship.toml" ]] && export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export STARSHIP_CONFIG="$HOME/.config/shell/starship.toml"
 
 # terminal
 export TERM="xterm-256color"
 
 # electron
-[[ -f "/usr/bin/trash" ]] && export ELECTRON_TRASH="/usr/bin/trash"
+export ELECTRON_TRASH="/usr/bin/trash"
 
 # wireshark ssl log
 export SSLKEYLOGFILE="$HOME/.ssl-key.log"
