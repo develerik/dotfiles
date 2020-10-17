@@ -69,10 +69,10 @@ exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers
 
 # run system services
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
-exec --no-startup-id /usr/bin/numlockx on
 exec --no-startup-id /usr/bin/light-locker
-exec --no-startup-id /usr/bin/udiskie -nas
+exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id numlockx on
+exec --no-startup-id udiskie -nas
 
 # setup scratchpad
 exec --no-startup-id $wm_setting_app_terminal --title scratchterm
@@ -193,11 +193,11 @@ for_window [window_role="dialog"]                                         floati
 for_window [window_role="menu"]                                           floating enable
 for_window [window_role="devtools"]                                       floating enable
 for_window [window_type="splash"]                                         floating enable
+for_window [class="Gufw.py"]                                              floating enable
 for_window [class="Pavucontrol"]                                          floating enable
 for_window [class="Virt-manager"]                                         floating enable
 for_window [class="File-roller"]                                          floating enable
 for_window [class="Pcmanfm"]                                              floating enable
-for_window [class="Veracrypt"]                                            floating enable
 for_window [class="Lxappearance"]                                         floating enable
 for_window [class="Blueman-manager"]                                      floating enable
 for_window [class="Evolution-alarm-notify"]                               floating enable
@@ -211,7 +211,6 @@ for_window [class="jetbrains-.*" title="win0"]                            floati
 for_window [class="Gnome-disks"]                                          floating enable
 for_window [title=".*Android Emulator.*"]                                 floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams"] floating enable
-for_window [instance="origin.exe"]                                        floating enable
 
 ### Modes ###
 
