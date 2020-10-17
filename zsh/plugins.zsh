@@ -22,7 +22,7 @@ if (($+commands[starship])); then
 fi
 
 # load nvm alternative fnm
-if [[ -f $HOME/.fnm ]]; then
+if [[ -d $HOME/.fnm ]]; then
   export PATH=$HOME/.fnm:$PATH
   eval "`fnm env --multi --use-on-cd`"
 fi
