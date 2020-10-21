@@ -5,6 +5,7 @@
 
 - link:
     ~/.bashrc: bash/bashrc
+    ~/.bash_profile: bash/bash_profile
     ~/.config/shell/environment.sh: shell/environment.sh
     ~/.config/shell/starship.toml: starship/starship.toml
     ~/.config/shell/aliases.sh: shell/aliases.sh
