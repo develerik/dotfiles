@@ -184,6 +184,9 @@ bindsym $mod+$smod+$wm_setting_key_down  move down
 bindsym $mod+$smod+$wm_setting_key_up    move up
 bindsym $mod+$smod+$wm_setting_key_right move right
 
+# focus fix
+for_window [class="jetbrains-studio" title="^win\d+$"] focus
+
 # define floating windows
 for_window [window_role="pop-up"]                                         floating enable
 for_window [window_role="bubble"]                                         floating enable
