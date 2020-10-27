@@ -1,7 +1,6 @@
 - create:
     - ~/.ssh
     - ~/.ssh/config.d
-    - ~/.ssh/sockets
 
 - link:
     ~/.ssh/config: ssh/config
