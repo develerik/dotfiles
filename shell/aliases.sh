@@ -78,7 +78,8 @@ alias mvr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify
 alias cpr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1'
 
 ################################################################################
-# ssh                                                                          #
+# ssh + vpn                                                                    #
 ################################################################################
 
 alias ssh='kitty +kitten ssh'
+alias oc='openconnect'
