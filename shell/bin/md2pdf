@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+filename=$(echo "$1" | cut -f 1 -d '.')
+pandoc "$1" --pdf-engine=xelatex -o "$filename.pdf" --variable urlcolor=cyan
