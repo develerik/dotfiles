@@ -189,7 +189,7 @@ let g:NERDTreeDirArrowCollapsible = ''
 
 let g:webdevicons_enable_nerdtree = 1
 
-au VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
+"au VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
