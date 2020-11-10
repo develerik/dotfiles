@@ -11,6 +11,5 @@
     ~/.config/shell/aliases.sh: shell/aliases.sh
     ~/.bin/compress: shell/bin/compress
     ~/.bin/extract: shell/bin/extract
-    ~/.bin/mcd: shell/bin/mcd
     ~/.bin/md2pdf: shell/bin/md2pdf
     ~/.bin/ssh-tmux: shell/bin/ssh-tmux
