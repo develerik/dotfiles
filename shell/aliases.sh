@@ -84,7 +84,11 @@ alias cpr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify
 alias ssh='kitty +kitten ssh'
 alias oc='sudo openconnect'
 
-alias java11='/usr/lib/jvm/java-11-openjdk/bin/java'
+################################################################################
+# misc                                                                         #
+################################################################################
+
+alias javactl='archlinux-java'
 
 function mcd() {
   [ -n "$1" ] && mkdir -p -- "$1" && cd -P -- "$1"
