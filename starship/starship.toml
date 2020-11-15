@@ -49,6 +49,9 @@ disabled = true
 [kubernetes]
 disabled = true
 
+[lua]
+disabled = true
+
 [memory_usage]
 disabled = true
 
@@ -57,6 +60,9 @@ disabled = true
 
 [nodejs]
 symbol = " "
+
+[openstack]
+disabled = true
 
 [package]
 symbol = " "
