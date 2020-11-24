@@ -30,22 +30,18 @@ set $color_nord13 #EBCB8B
 set $color_nord14 #A3BE8C
 set $color_nord15 #B48EAD
 
-set $out_main  DisplayPort-0
-set $out_left  DisplayPort-1
-set $out_right DisplayPort-2
-
 set $bar_setting_position      top
 set $bar_setting_font          pango:monospace 11
 set $bar_setting_statusCommand i3blocks
-set $bar_setting_trayoutput    DisplayPort-0
+set $bar_setting_trayoutput    primary
 
 set $wallpapers $HOME/Pictures/Wallpapers
 
 set $ws0 "1: Primary"
-set $ws1 "2: Secondary"
-set $ws2 "3: Tertiary"
+set $ws1 "2"
+set $ws2 "3"
 set $ws3 "4: Coding"
-set $ws4 "5: Gaming"
+set $ws4 "5"
 set $ws5 "6: Media"
 set $ws6 "7"
 set $ws7 "8"
@@ -58,6 +54,9 @@ set $mode_passthrough "Passthrough"
 
 ### Autostart ###
 
+# disable touchpad
+exec_always --no-startup-id /usr/bin/xinput disable "Elan Touchpad"
+
 # run a window compositor
 exec_always --no-startup-id killall $wm_setting_app_compositor 2>/dev/null; $wm_setting_app_compositor -b --dbus
 
@@ -65,14 +64,13 @@ exec_always --no-startup-id killall $wm_setting_app_compositor 2>/dev/null; $wm_
 exec_always --no-startup-id killall $wm_setting_app_notification 2>/dev/null; $wm_setting_app_notification
 
 # setup wallpapers
-exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers/4k_nord.png $wallpapers/4k_nord.png
+exec_always --no-startup-id feh --bg-scale $wallpapers/4k_nord.png
 
 # run system services
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/bin/light-locker
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id numlockx on
-exec --no-startup-id udiskie -nas
+exec --no-startup-id udiskie -Nas
 
 # setup scratchpad
 exec --no-startup-id $wm_setting_app_terminal --title scratchterm
@@ -115,19 +113,14 @@ bindsym $mod+v split v; exec notify-send -a 'i3' 'Tile vertically'
 bindcode 121 exec pactl     set-sink-mute   0 toggle && pkill -RTMIN+1 i3blocks
 bindcode 122 exec pactl     set-sink-volume 0 -5%    && pkill -RTMIN+1 i3blocks
 bindcode 123 exec pactl     set-sink-volume 0 +5%    && pkill -RTMIN+1 i3blocks
-bindcode 173 exec playerctl previous                 && pkill -RTMIN+2 i3blocks
-bindcode 172 exec playerctl play-pause               && pkill -RTMIN+2 i3blocks
-bindcode 171 exec playerctl next                     && pkill -RTMIN+2 i3blocks
+
+bindcode 198 exec amixer -q -D pulse sset Capture toggle
+
+# display controls
+bindcode 232 exec brightnessctl -q s 5%-
+bindcode 233 exec brightnessctl -q s +5%
 
 ### Workspaces ###
-
-# assign workspaces to dedicated monitors
-workspace $ws0 output $out_main
-workspace $ws1 output $out_left
-workspace $ws2 output $out_right
-workspace $ws3 output $out_main
-workspace $ws4 output $out_main
-workspace $ws5 output $out_left
 
 # switch workspace
 bindsym $mod+1 workspace $ws0
@@ -159,10 +152,6 @@ bindsym $mod+$alt+$wm_setting_key_right move workspace to output right
 
 # assign windows to dedicated workspaces
 assign [class="jetbrains-.*"]   $ws3
-assign [class="Lutris"]         $ws4
-assign [class="Steam"]          $ws4
-assign [class="ffxiv_dx11.exe"] $ws4
-assign [class="Wine"]           $ws4 # TODO: use a less general rule for games
 assign [class="Spotify"]        $ws5
 
 # force windows to workspaces
@@ -233,7 +222,7 @@ mode $mode_resize {
 }
 
 mode $mode_system {
-  bindsym l exec --no-startup-id light-locker-command -l, mode "default"
+  bindsym l exec --no-startup-id betterlockscreen -l, mode "default"
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
   bindsym r exec --no-startup-id reboot, mode "default"
   bindsym s exec --no-startup-id poweroff, mode "default"
