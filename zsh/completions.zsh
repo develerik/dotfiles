@@ -32,15 +32,3 @@ zstyle ':completion:*' insert-tab pending
 if (($+commands[op])); then
   eval "$(op completion zsh)"; compdef _op op
 fi
-
-if (($+commands[pipx])); then
-  eval "$(register-python-argcomplete pipx)"
-fi
-
-if (($+commands[aws])); then
-  . aws_zsh_completer.sh
-fi
-
-if (($+commands[pipenv])); then
-  eval "$(pipenv --completion)"
-fi
