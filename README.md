@@ -31,3 +31,21 @@ git clone --recursive https://github.com/develerik/dotfiles.git ~/.dotfiles
 ```
 
 If necessary, special installation instructions are available in the `README.md` file in the package (will be updated soon).
+
+## Wacom Setup
+
+`/etc/udev/rules.d/wacom.rules`
+```
+ACTION!="add|change", GOTO="wacom_end"
+KERNEL!="event[0-9]*", GOTO="wacom_end"
+
+DRIVERS=="wacom", ATTRS{bInterfaceNumber}=="00", ENV{WACOM_TYPE}="stylus"
+DRIVERS=="wacom", ATTRS{bInterfaceNumber}=="01", ENV{WACOM_TYPE}="touch"
+
+ATTRS{idVendor}=="056a", ENV{WACOM_TYPE}!="touch", SYMLINK+="input/wacom"
+ATTRS{idVendor}=="056a", ENV{WACOM_TYPE}=="touch", SYMLINK+="input/wacom-touch"
+
+ATTRS{idVendor}=="056a", ACTION=="add", RUN+="check_driver wacom $devpath $env{ID_BUS}"
+
+LABEL="wacom_end"
+```
