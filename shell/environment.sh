@@ -1,6 +1,20 @@
 #!/usr/bin/env sh
 
+################################################################################
+# java apps                                                                    #
+################################################################################
+
 _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+
+# fix reparenting issue of java apps when using tiling wm
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+################################################################################
+# compiler                                                                     #
+################################################################################
+
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
 
 ################################################################################
 # locale                                                                       #

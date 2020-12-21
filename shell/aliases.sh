@@ -81,7 +81,7 @@ alias cpr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify
 # ssh + vpn                                                                    #
 ################################################################################
 
-alias ssh='kitty +kitten ssh'
+alias kssh='kitty +kitten ssh'
 alias oc='sudo openconnect'
 
 ################################################################################
