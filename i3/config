@@ -56,6 +56,8 @@ set $mode_resize      "Resize: (h) shrink w, (j) grow h, (k) shrink h, (l) grow 
 set $mode_system      "System: (l) lock, (e) logout, (r) reboot, (s) shutdown"
 set $mode_passthrough "Passthrough"
 
+font $bar_setting_font
+
 ### Autostart ###
 
 # run a window compositor
@@ -102,8 +104,6 @@ bindsym  $mod+$smod+q     [con_id="__focused__" title="^(?!scratchterm).*$"] kil
 bindsym  $mod+f           fullscreen toggle
 bindsym  $mod+$smod+space floating   toggle
 bindsym  $mod+$alt+space  sticky     toggle
-bindsym  $mod+$smod+n     exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
-bindsym  $mod+$smod+c     reload
 bindsym  $mod+$smod+r     restart
 bindcode $mod+66          exec xkb-switch -n && pkill -RTMIN+3 i3blocks
 
