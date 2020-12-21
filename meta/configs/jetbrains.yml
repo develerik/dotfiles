@@ -1,0 +1,15 @@
+- link:
+    ~/.config/JetBrains/CLion2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/DataGrip2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/GoLand2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/IntelliJIdea2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/PyCharm2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/Rider2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/WebStorm2020.3/idea.properties: jetbrains/idea.properties
+    ~/.config/JetBrains/CLion2020.3/clion64.vmoptions: jetbrains/idea.vmoptions
+    ~/.config/JetBrains/DataGrip2020.3/datagrip64.vmoptions: jetbrains/idea.vmoptions
+    ~/.config/JetBrains/GoLand2020.3/goland64.vmoptions: jetbrains/idea.vmoptions
+    ~/.config/JetBrains/IntelliJIdea2020.3/idea64.vmoptions: jetbrains/idea.vmoptions
+    ~/.config/JetBrains/PyCharm2020.3/pycharm64.vmoptions: jetbrains/idea.vmoptions
+    ~/.config/JetBrains/Rider2020.3/rider64.vmoptions: jetbrains/idea.vmoptions
+    ~/.config/JetBrains/WebStorm2020.3/webstorm64.vmoptions: jetbrains/idea.vmoptions
