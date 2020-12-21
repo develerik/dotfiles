@@ -1,8 +1,13 @@
 command=~/.config/i3blocks/blocks/$BLOCK_NAME.sh
 align=center
 separator=false
-separator_block_width=20
+separator_block_width=15
 markup=pango
+
+[mediaplayer]
+interval=1
+signal=2
+label=<span color="#D08770">契 </span>
 
 [volume]
 interval=2
@@ -15,9 +20,6 @@ signal=3
 label=<span color="#A3BE8C"> </span>
 
 [time]
-interval=1
-label=<span color="#D08770"> </span>
-
-[date]
-interval=60
 label=<span color="#B48EAD"> </span>
+command=date '+%a %d.%m.%Y %H:%M'
+interval=1

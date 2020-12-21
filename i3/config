@@ -84,7 +84,7 @@ exec --no-startup-id udiskie -as
 exec --no-startup-id $wm_setting_app_terminal --title scratchterm
 
 # setup special keyboard mappings and layouts
-exec --no-startup-id setxkbmap -layout us,de -option caps:escape
+exec_always --no-startup-id setxkbmap -layout us,de -option caps:escape
 
 ### Applications ###
 
@@ -103,12 +103,12 @@ bindsym Print exec --no-startup-id $wm_setting_app_screenshot gui
 ### Special Controls ###
 
 # i3 controls
-bindsym  $mod+$smod+q     [con_id="__focused__" title="^(?!scratchterm).*$"] kill
-bindsym  $mod+f           fullscreen toggle
-bindsym  $mod+$smod+space floating   toggle
-bindsym  $mod+$alt+space  sticky     toggle
-bindsym  $mod+$smod+r     restart
-bindcode $mod+66          exec xkb-switch -n && pkill -RTMIN+3 i3blocks
+bindsym $mod+$smod+q     [con_id="__focused__" title="^(?!scratchterm).*$"] kill
+bindsym $mod+f           fullscreen toggle
+bindsym $mod+$smod+space floating   toggle
+bindsym $mod+$alt+space  sticky     toggle
+bindsym $mod+$smod+r     restart
+bindsym $mod+space       exec xkb-switch -n && pkill -RTMIN+3 i3blocks
 
 # split orientation
 bindsym $mod+g split h; exec notify-send -a 'i3' 'Tile horizontally'
@@ -257,10 +257,34 @@ hide_edge_borders       none
 ### Status Bar ###
 
 bar {
-  status_command $bar_setting_statusCommand
+  status_command $bar_setting_statusCommand -c ~/.config/i3blocks/config_main
   font           $bar_setting_font
   position       $bar_setting_position
   tray_output    $bar_setting_trayoutput
+  output         $out_main
+
+  bindsym button4 nop
+  bindsym button5 nop
+
+  colors {
+    background $color_nord0
+    statusline $color_nord8
+
+    # State             Border        BG            Text
+    focused_workspace   $color_nord8  $color_nord8  $color_nord0
+    active_workspace    $color_nord8  $color_nord8  $color_nord0
+    inactive_workspace  $color_nord3  $color_nord3  $color_nord8
+    urgent_workspace    $color_nord3  $color_nord3  $color_nord15
+    binding_mode        $color_nord13 $color_nord13 $color_nord0
+  }
+}
+
+bar {
+  status_command $bar_setting_statusCommand -c ~/.config/i3blocks/config_side
+  font           $bar_setting_font
+  position       $bar_setting_position
+  output         $out_left
+  output         $out_right
 
   bindsym button4 nop
   bindsym button5 nop

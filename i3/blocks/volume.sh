@@ -24,13 +24,15 @@ set_default_playback_device_next() {
   move_sinks_to_new_default "$default_sink"
 }
 
-case "$BLOCK_BUTTON" in
-  1) set_default_playback_device_next ;;
-  2) amixer -q -D pulse sset "$SCONTROL" "$CAPABILITY" toggle ;;
-  3) set_default_playback_device_next -1 ;;
-  4) amixer -q -D pulse sset "$SCONTROL" "$CAPABILITY" 5%+ ;;
-  5) amixer -q -D pulse sset "$SCONTROL" "$CAPABILITY" 5%- ;;
-esac
+if [ ! "$DEVICE" = "no" ]; then
+  case "$BLOCK_BUTTON" in
+    1) set_default_playback_device_next ;;
+    2) amixer -q -D pulse sset "$SCONTROL" "$CAPABILITY" toggle ;;
+    3) set_default_playback_device_next -1 ;;
+    4) amixer -q -D pulse sset "$SCONTROL" "$CAPABILITY" 5%+ ;;
+    5) amixer -q -D pulse sset "$SCONTROL" "$CAPABILITY" 5%- ;;
+  esac
+fi
 
 ACTIVE=$(pacmd list-sinks | grep "state\: RUNNING" -B4 -A7 | grep "index:\|name:\|volume: \(front\|mono\)\|muted:")
 [ -z "$ACTIVE" ] && ACTIVE=$(pacmd list-sinks | grep "index:\|name:\|volume: \(front\|mono\)\|muted:" | grep -A3 '.*')
@@ -46,5 +48,8 @@ grep "device.description" |\
 head -n1 |\
 sed 's/.*= "\(.*\)".*/\1/')
 
-[ "$MUTED" = "muted: no" ] && echo "${VOL}% [${NAME}]" || echo "muted"
-
+if [ "$DEVICE" = "no" ]; then
+  [ "$MUTED" = "muted: no" ] && echo "${VOL}%" || echo "muted"
+else
+  [ "$MUTED" = "muted: no" ] && echo "${VOL}% [${NAME}]" || echo "muted"
+fi

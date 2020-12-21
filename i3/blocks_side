@@ -1,0 +1,22 @@
+command=~/.config/i3blocks/blocks/$BLOCK_NAME.sh
+align=center
+separator=false
+separator_block_width=15
+markup=pango
+
+[volume]
+interval=2
+signal=1
+label=<span color="#EBCB8B"> </span>
+DEVICE=no
+CONTROL=no
+
+[keyboard]
+interval=2
+signal=3
+label=<span color="#A3BE8C"> </span>
+
+[time]
+label=<span color="#B48EAD"> </span>
+command=date '+%a %d.%m.%Y %H:%M '
+interval=1
