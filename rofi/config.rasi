@@ -1,14 +1,15 @@
 configuration {
-  modi: "drun,ssh,calc";
+  modi: "drun,calc,ssh";
   lines: 8;
   show-icons: true;
   theme: "nord";
   font: "sans-serif 13";
-  display-drun: "";
+  display-drun: "Launch";
   display-ssh: "Connect";
   display-calc: "Calculate";
   drun-display-format: "{name}";
   drun-show-actions: true;
   parse-known-hosts: false;
   parse-hosts: false;
+  sidebar-mode: true;
 }

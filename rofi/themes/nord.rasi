@@ -105,5 +105,5 @@
 
 #button.selected {
     background-color: @nord8;
-    text-color: @nord4;
+    text-color: @nord0;
 }
