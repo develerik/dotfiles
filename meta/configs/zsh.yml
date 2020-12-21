@@ -1,7 +1,7 @@
 - create:
     - ~/.config/zsh
     - ~/.config/shell
-    - ~/.config/.bin
+    - ~/.bin
 
 - link:
     ~/.zshrc: zsh/zshrc

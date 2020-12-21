@@ -1,7 +1,7 @@
 - create:
     - ~/.config/bash
     - ~/.config/shell
-    - ~/.config/.bin
+    - ~/.bin
 
 - link:
     ~/.bashrc: bash/bashrc
