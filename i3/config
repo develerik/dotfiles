@@ -12,6 +12,7 @@ set $wm_setting_app_terminal     i3-sensible-terminal
 set $wm_setting_app_launcher     rofi
 set $wm_setting_app_compositor   picom
 set $wm_setting_app_notification dunst
+set $wm_setting_app_screenshot   flameshot
 
 set $color_nord0  #2E3440
 set $color_nord1  #3B4252
@@ -96,9 +97,8 @@ bindsym $mod+minus        [title="scratchterm"] scratchpad show, resize set 940 
 bindsym $mod+d       exec --no-startup-id $wm_setting_app_launcher -show
 bindsym $mod+$smod+d exec --no-startup-id $wm_setting_app_launcher -modi 1pass:rofi-1pass -show 1pass
 
-# start a screen recorder
-bindsym Print      exec --no-startup-id flameshot gui
-bindsym $mod+Print exec --no-startup-id peek
+# make a screenshot
+bindsym Print exec --no-startup-id $wm_setting_app_screenshot gui
 
 ### Special Controls ###
 
