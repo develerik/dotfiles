@@ -71,7 +71,7 @@ alias rsync='noglob rsync'
 alias git='noglob git'
 alias scp='noglob scp'
 
-alias youtube-mp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
+alias ytd='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
 
 # rsync
 alias mvr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files'
@@ -88,7 +88,7 @@ alias oc='sudo openconnect'
 # misc                                                                         #
 ################################################################################
 
-alias javactl='archlinux-java'
+alias javactl='sudo archlinux-java'
 
 function mcd() {
   [ -n "$1" ] && mkdir -p -- "$1" && cd -P -- "$1"
