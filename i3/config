@@ -8,7 +8,7 @@ set $wm_setting_key_down  j
 set $wm_setting_key_up    k
 set $wm_setting_key_right l
 
-set $wm_setting_app_terminal     i3-sensible-terminal
+set $wm_setting_app_terminal     kitty
 set $wm_setting_app_launcher     rofi
 set $wm_setting_app_compositor   picom
 set $wm_setting_app_notification dunst
@@ -283,6 +283,7 @@ bar {
   status_command $bar_setting_statusCommand -c ~/.config/i3blocks/config_side
   font           $bar_setting_font
   position       $bar_setting_position
+  tray_output    none
   output         $out_left
   output         $out_right
 
