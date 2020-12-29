@@ -48,8 +48,16 @@ grep "device.description" |\
 head -n1 |\
 sed 's/.*= "\(.*\)".*/\1/')
 
+INFO=
+
 if [ "$DEVICE" = "no" ]; then
-  [ "$MUTED" = "muted: no" ] && echo "${VOL}%" || echo "muted"
+  INFO="${VOL}%"
 else
-  [ "$MUTED" = "muted: no" ] && echo "${VOL}% [${NAME}]" || echo "muted"
+  if [ ! "${NAME##*"Analog Stereo"*}" ]; then
+    NAME=$(echo $NAME | sed -r 's/^(.*) Analog Stereo$/\1/')
+  fi
+
+  INFO="${VOL}% [${NAME}]"
 fi
+
+[ "$MUTED" = "muted: no" ] && echo "${INFO}" || echo "muted"
