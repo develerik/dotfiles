@@ -61,6 +61,9 @@ font $bar_setting_font
 
 ### Autostart ###
 
+# lock system
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen --lock
+
 # configure wacom tablet
 exec_always --no-startup-id xsetwacom set $(xsetwacom list | awk '/stylus/{print $8}') MapToOutput DisplayPort-0 2> /dev/null
 
@@ -198,13 +201,11 @@ for_window [window_role="dialog"]                                         floati
 for_window [window_role="menu"]                                           floating enable
 for_window [window_role="devtools"]                                       floating enable
 for_window [window_type="splash"]                                         floating enable
-for_window [class="Gufw.py"]                                              floating enable
 for_window [class="Pavucontrol"]                                          floating enable
 for_window [class="Virt-manager"]                                         floating enable
 for_window [class="File-roller"]                                          floating enable
 for_window [class="Pcmanfm"]                                              floating enable
 for_window [class="Lxappearance"]                                         floating enable
-for_window [class="Blueman-manager"]                                      floating enable
 for_window [class="Evolution-alarm-notify"]                               floating enable
 for_window [class="Evolution" title="Appointment — .*"]                   floating enable
 for_window [class="Evolution" title="Meeting — .*"]                       floating enable
@@ -216,7 +217,6 @@ for_window [class="jetbrains-.*" title="win0"]                            floati
 for_window [class="Gnome-disks"]                                          floating enable
 for_window [title=".*Android Emulator.*"]                                 floating enable
 for_window [title="About Firefox Developer Edition"]                      floating enable
-for_window [title="Microsoft Teams Notification" class="Microsoft Teams"] floating enable
 
 ### Modes ###
 
@@ -235,7 +235,7 @@ mode $mode_resize {
 }
 
 mode $mode_system {
-  bindsym l exec --no-startup-id betterlockscreen -l, mode "default"
+  bindsym l exec --no-startup-id betterlockscreen --lock, mode "default"
   bindsym e exec --no-startup-id i3-msg exit, mode "default"
   bindsym r exec --no-startup-id reboot, mode "default"
   bindsym s exec --no-startup-id poweroff, mode "default"
