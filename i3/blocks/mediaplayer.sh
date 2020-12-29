@@ -5,8 +5,15 @@ TITLE=$(playerctl metadata title)
 
 if [ -n "$TITLE" ]; then
   if [ -z "$ARTIST" ]; then
-    echo "$TITLE"
+    INFO="$TITLE"
   else
-    echo "$ARTIST - $TITLE"
+    INFO="$ARTIST - $TITLE"
   fi
 fi
+
+# beautify amazon prime
+if [ ! "${INFO##*": Amazon.de"*}" ]; then
+  INFO=$(echo $INFO | sed -r 's/^(.*): .*: Amazon.de.*$/\1/')
+fi
+
+echo $INFO
