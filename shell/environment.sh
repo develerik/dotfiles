@@ -100,9 +100,6 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 # misc                                                                         #
 ################################################################################
 
-# set weechat home
-export WEECHAT_HOME="$HOME/.config/weechat"
-
 # the time the shell waits, for another key to be pressed in milliseconds
 export KEYTIMEOUT=1
 
@@ -114,9 +111,6 @@ export TERM="xterm-256color"
 
 # electron
 export ELECTRON_TRASH="/usr/bin/trash"
-
-# wireshark ssl log
-export SSLKEYLOGFILE="$HOME/.ssl-key.log"
 
 # enable colored output from ls, etc. on FreeBSD-based systems
 export CLICOLOR=1
