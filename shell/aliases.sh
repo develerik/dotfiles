@@ -78,19 +78,14 @@ alias ytd='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
 alias mvr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files'
 alias cpr='rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1'
 
+# java
+alias javactl='sudo archlinux-java'
+
+alias mcd='function _mcd(){ [ -n "$1" ] && mkdir -p -- "$1"; cd -P -- "$1"; };_mcd'
+
 ################################################################################
 # ssh + vpn                                                                    #
 ################################################################################
 
 alias kssh='kitty +kitten ssh'
 alias oc='sudo openconnect'
-
-################################################################################
-# misc                                                                         #
-################################################################################
-
-alias javactl='sudo archlinux-java'
-
-function mcd() {
-  [ -n "$1" ] && mkdir -p -- "$1" && cd -P -- "$1"
-}
