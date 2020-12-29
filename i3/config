@@ -65,7 +65,7 @@ font $bar_setting_font
 exec_always --no-startup-id xsetwacom set $(xsetwacom list | awk '/stylus/{print $8}') MapToOutput DisplayPort-0 2> /dev/null
 
 # run a window compositor
-exec_always --no-startup-id killall $wm_setting_app_compositor 2>/dev/null; $wm_setting_app_compositor -b --dbus
+exec_always --no-startup-id $wm_setting_app_compositor --dbus
 
 # run a notification service
 exec_always --no-startup-id killall $wm_setting_app_notification 2>/dev/null; $wm_setting_app_notification
