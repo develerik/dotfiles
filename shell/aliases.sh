@@ -71,6 +71,7 @@ alias rsync='noglob rsync'
 alias git='noglob git'
 alias scp='noglob scp'
 
+# youtube-dl
 alias ytd='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
 
 # rsync

@@ -2,6 +2,7 @@
     - ~/.config/bash
     - ~/.config/shell
     - ~/.bin
+    - ~/.op
 
 - link:
     ~/.bashrc: bash/bashrc
@@ -13,3 +14,6 @@
     ~/.bin/extract: shell/bin/extract
     ~/.bin/md2pdf: shell/bin/md2pdf
     ~/.bin/ssh-tmux: shell/bin/ssh-tmux
+
+- shell:
+  - chmod 700 ~/.op
