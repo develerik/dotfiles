@@ -75,7 +75,6 @@ exec_always --no-startup-id feh --bg-scale $wallpapers/uw5k_nord.png $wallpapers
 
 # run system services
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/bin/light-locker
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id numlockx on
 exec --no-startup-id udiskie -as

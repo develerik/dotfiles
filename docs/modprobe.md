@@ -10,7 +10,7 @@ options overlay redirect_dir=off metacopy=off
 
 ## Nested KVM
 
-`/etc/`
+`/etc/modprobe.d/amd-kvm.conf`
 
 ```
 options kvm-amd nested=1
