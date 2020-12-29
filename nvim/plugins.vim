@@ -19,27 +19,48 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" register vim-plug as a plugin for help
 Plug 'junegunn/vim-plug'
 
-" theme plugins
-Plug 'arcticicestudio/nord-vim'
+" common
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mhinz/vim-signify'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'mhinz/vim-startify'
 
-" git plugins
-Plug 'mhinz/vim-signify'
+" html
+Plug 'gregsexton/MatchTag', { 'for': ['html', 'javascript'] }
+Plug 'othree/html5.vim', { 'for': ['html', 'javascript'] }
 
-" language plugins
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'editorconfig/editorconfig-vim'
-
-" ui plugins
-Plug 'preservim/nerdtree'
+" css/scss
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
+Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
+
+" javascript
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+
+" c/c++
+Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'cpp'] }
+Plug 'justmao945/vim-clang'
+
+" graphviz
+Plug 'liuchengxu/graphviz.vim', { 'for': 'dot' }
+
+" latex
+Plug 'lervag/vimtex'
+
+" themes
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -98,7 +119,10 @@ augroup nord-theme-overrides
   autocmd!
   " set background transparent
   autocmd ColorScheme nord highlight Normal guibg=NONE ctermbg=NONE
+  " fix vimtex
+  autocmd ColorScheme nord highlight Conceal guibg=NONE ctermbg=NONE
 augroup END
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline + lightline-bufferline
@@ -181,6 +205,30 @@ set updatetime=100
 let g:EditorConfig_exclude_patterns = ['scp://.*']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" golang
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" latex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -189,8 +237,8 @@ let g:NERDTreeDirArrowCollapsible = ''
 
 let g:webdevicons_enable_nerdtree = 1
 
-"au VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " hexokinase

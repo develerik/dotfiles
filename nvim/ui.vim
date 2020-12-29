@@ -4,6 +4,7 @@
 
 " enable syntax highlighting
 syntax enable
+set t_Co=256
 
 " enable 256 colors palette
 if $TERM == "xterm-256color"

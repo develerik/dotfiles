@@ -1,9 +1,6 @@
-" no compatibility
-set nocompatible
-
 " language ui
 language messages C
-set langmenu=en_USE.UTF-8
+set langmenu=en_US.UTF-8
 
 " source configuration files
 let g:nvim_config_root = expand('<sfile>:p:h')

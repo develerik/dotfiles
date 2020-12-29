@@ -91,7 +91,7 @@ set noshowmode
 set splitbelow splitright
 
 " list all items and start selecting matches in cmd completion
-set wildmode=list:full
+set wildmode=longest,list,full
 
 " show current line where the cursor is
 set cursorline
