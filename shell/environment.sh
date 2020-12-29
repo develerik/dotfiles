@@ -4,7 +4,7 @@
 # java apps                                                                    #
 ################################################################################
 
-_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
 
 # fix reparenting issue of java apps when using tiling wm
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -111,6 +111,3 @@ export TERM="xterm-256color"
 
 # electron
 export ELECTRON_TRASH="/usr/bin/trash"
-
-# enable colored output from ls, etc. on FreeBSD-based systems
-export CLICOLOR=1
