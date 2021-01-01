@@ -44,17 +44,32 @@
 	abbrevCommit = true
 
 [diff]
+	# style moved blocks differently
+	colormoved = dimmed-zebra
 	# use better diff algorithm
 	algorithm = histogram
 	# configure vscode as external difftool
 	tool = vscode
 
-[difftool]
-	prompt = false
+# better swift diff
+[diff "swift"]
+	xfuncname = ^[ \t]*((class|func)[ \t].*)$
 
 # better wasm diff
 [diff "wasm"]
 	textconv = wasm2wat --enable-all --generate-names
+
+# better exif diff
+[diff "exif"]
+	binary = true
+	textconv = exiftool
+
+# better pdf diff
+[diff "pdf"]
+	textconv = pdftotext
+
+[difftool]
+	prompt = false
 
 [merge]
 	# configure vscode as external mergetool
