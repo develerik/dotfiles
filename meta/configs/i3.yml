@@ -14,3 +14,6 @@
     ~/.config/i3blocks/blocks/mediaplayer.sh: i3/blocks/mediaplayer.sh
     ~/Pictures/Wallpapers/4k_nord.png: i3/wallpapers/4k_nord.png
     ~/Pictures/Wallpapers/uw5k_nord.png: i3/wallpapers/uw5k_nord.png
+
+- shell:
+    - betterlockscreen --update ~/Pictures/Wallpapers/uw5k_nord.png
