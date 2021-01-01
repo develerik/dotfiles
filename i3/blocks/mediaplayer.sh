@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-ARTIST=$(playerctl metadata artist)
-TITLE=$(playerctl metadata title)
+ARTIST=$(playerctl metadata artist 2> /dev/null)
+TITLE=$(playerctl metadata title 2> /dev/null)
 
 if [ -n "$TITLE" ]; then
   if [ -z "$ARTIST" ]; then
@@ -16,4 +16,9 @@ if [ ! "${INFO##*": Amazon.de"*}" ]; then
   INFO=$(echo $INFO | sed -r 's/^(.*): .*: Amazon.de.*$/\1/')
 fi
 
-echo $INFO
+
+if [ -n "$TITLE" ]; then
+  echo $INFO
+else
+  echo "No playback"
+fi

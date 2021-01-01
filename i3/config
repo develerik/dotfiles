@@ -120,9 +120,9 @@ bindsym $mod+v split v; exec notify-send -a 'i3' 'Tile vertically'
 bindcode 121 exec pactl     set-sink-mute   0 toggle && pkill -RTMIN+1 i3blocks
 bindcode 122 exec pactl     set-sink-volume 0 -5%    && pkill -RTMIN+1 i3blocks
 bindcode 123 exec pactl     set-sink-volume 0 +5%    && pkill -RTMIN+1 i3blocks
-bindcode 173 exec playerctl previous                 && pkill -RTMIN+2 i3blocks
-bindcode 172 exec playerctl play-pause               && pkill -RTMIN+2 i3blocks
-bindcode 171 exec playerctl next                     && pkill -RTMIN+2 i3blocks
+bindcode 173 exec playerctl previous   2> /dev/null  && pkill -RTMIN+2 i3blocks
+bindcode 172 exec playerctl play-pause 2> /dev/null  && pkill -RTMIN+2 i3blocks
+bindcode 171 exec playerctl next       2> /dev/null  && pkill -RTMIN+2 i3blocks
 
 ### Workspaces ###
 
