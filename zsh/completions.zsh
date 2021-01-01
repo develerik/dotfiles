@@ -32,3 +32,6 @@ zstyle ':completion:*' insert-tab pending
 if (($+commands[op])); then
   eval "$(op completion zsh)"; compdef _op op
 fi
+
+# Load advanced git completions
+fpath=(~/.local/share/git-completion/zsh $fpath)
