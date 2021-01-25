@@ -16,6 +16,14 @@ if [ ! "${INFO##*": Amazon.de"*}" ]; then
   INFO=$(echo $INFO | sed -r 's/^(.*): .*: Amazon.de.*$/\1/')
 fi
 
+if [ ! "${INFO##*"Prime Video -"*}" ]; then
+  INFO="Prime Video"
+fi
+
+if [ ! "${INFO##*"Disney+"*}" ]; then
+  INFO="Disney+"
+fi
+
 
 if [ -n "$TITLE" ]; then
   echo $INFO

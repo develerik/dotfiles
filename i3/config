@@ -163,15 +163,14 @@ bindsym $mod+$alt+$wm_setting_key_left  move workspace to output left
 bindsym $mod+$alt+$wm_setting_key_right move workspace to output right
 
 # assign windows to dedicated workspaces
-assign [class="jetbrains-.*"]   $ws3
-assign [class="Lutris"]         $ws4
-assign [class="Steam"]          $ws4
-assign [class="ffxiv_dx11.exe"] $ws4
-assign [class="Wine"]           $ws4 # TODO: use a less general rule for games
-assign [class="Spotify"]        $ws5
+assign [class="jetbrains-.*" window_type="normal"] $ws3
+assign [class="Lutris"]                            $ws4
+assign [class="Steam"]                             $ws4
+assign [class="xivlauncher.exe"]                   $ws4
+assign [class="ffxiv_dx11.exe"]                    $ws4
+assign [class="Spotify"]                           $ws5
 
 # force windows to workspaces
-for_window [class="jetbrains-.*"] move to workspace $ws3
 for_window [class="Spotify"]      move to workspace $ws5
 for_window [title="scratchterm"]  move scratchpad
 
@@ -204,6 +203,7 @@ for_window [window_type="splash"]                                         floati
 for_window [class="Pavucontrol"]                                          floating enable
 for_window [class="Virt-manager"]                                         floating enable
 for_window [class="File-roller"]                                          floating enable
+for_window [class="pdfmixtool"]                                           floating enable
 for_window [class="Pcmanfm"]                                              floating enable
 for_window [class="Lxappearance"]                                         floating enable
 for_window [class="Evolution-alarm-notify"]                               floating enable
