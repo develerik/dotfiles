@@ -9,4 +9,3 @@
     ~/.config/nvim/options.vim: nvim/options.vim
     ~/.config/nvim/plugins.vim: nvim/plugins.vim
     ~/.config/nvim/ui.vim: nvim/ui.vim
-    ~/.config/nvim/variables.vim: nvim/variables.vim

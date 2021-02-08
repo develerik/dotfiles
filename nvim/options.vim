@@ -10,10 +10,12 @@ filetype plugin indent on
 
 " set to auto read when a file is changed from the outside
 set autoread
-au FocusGained,BufEnter * checktime
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+  autocmd FileChangedShellPost * " notification after file change
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " with a map leader it's possible to do extra key combinations
-let mapleader = ","
+let g:mapleader = "\<Space>"
 
 " :W sudo saves the file
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
