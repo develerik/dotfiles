@@ -47,7 +47,7 @@ set $ws1 "2: Secondary"
 set $ws2 "3: Tertiary"
 set $ws3 "4: Coding"
 set $ws4 "5: Gaming"
-set $ws5 "6: Media"
+set $ws5 "6"
 set $ws6 "7"
 set $ws7 "8"
 set $ws8 "9"
@@ -94,6 +94,7 @@ exec_always --no-startup-id setxkbmap -layout us,de -option caps:escape
 bindsym $mod+Return       exec $wm_setting_app_terminal
 bindsym $mod+$smod+Return exec $wm_setting_app_terminal bash
 bindsym $mod+minus        [title="scratchterm"] scratchpad show, resize set 940 600, move position center, sticky enable
+bindsym $mod+equal        [class="Spotify"]     scratchpad show, resize set 1280 720, move position center, sticky enable
 
 # start a programm launcher
 bindsym $mod+d       exec --no-startup-id $wm_setting_app_launcher -show
@@ -132,7 +133,6 @@ workspace $ws1 output $out_left
 workspace $ws2 output $out_right
 workspace $ws3 output $out_main
 workspace $ws4 output $out_main
-workspace $ws5 output $out_left
 
 # switch workspace
 bindsym $mod+1 workspace $ws0
@@ -168,10 +168,9 @@ assign [class="Lutris"]                            $ws4
 assign [class="Steam"]                             $ws4
 assign [class="xivlauncher.exe"]                   $ws4
 assign [class="ffxiv_dx11.exe"]                    $ws4
-assign [class="Spotify"]                           $ws5
 
 # force windows to workspaces
-for_window [class="Spotify"]      move to workspace $ws5
+for_window [class="Spotify"]      move scratchpad
 for_window [title="scratchterm"]  move scratchpad
 
 ### Windows ###
