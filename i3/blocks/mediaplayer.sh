@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
-ARTIST=$(playerctl metadata artist 2> /dev/null)
-TITLE=$(playerctl metadata title 2> /dev/null)
+ARTIST=$(playerctl -p spotify metadata artist 2> /dev/null)
+TITLE=$(playerctl -p spotify metadata title 2> /dev/null)
+STATUS=$(playerctl -p spotify status 2> /dev/null)
 
 if [ -n "$TITLE" ]; then
   if [ -z "$ARTIST" ]; then
@@ -11,22 +12,11 @@ if [ -n "$TITLE" ]; then
   fi
 fi
 
-# beautify amazon prime
-if [ ! "${INFO##*": Amazon.de"*}" ]; then
-  INFO=$(echo $INFO | sed -r 's/^(.*): .*: Amazon.de.*$/\1/')
-fi
-
-if [ ! "${INFO##*"Prime Video -"*}" ]; then
-  INFO="Prime Video"
-fi
-
-if [ ! "${INFO##*"Disney+"*}" ]; then
-  INFO="Disney+"
-fi
-
-
 if [ -n "$TITLE" ]; then
-  echo $INFO
-else
-  echo "No playback"
+  ICON=""
+  case $STATUS in
+    "Playing") ICON="契" ;;
+    "Paused")  ICON="懶" ;;
+  esac
+  echo "<span color='#D08770'>${ICON}</span> ${INFO}"
 fi

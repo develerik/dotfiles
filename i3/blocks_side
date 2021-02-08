@@ -7,7 +7,6 @@ markup=pango
 [volume]
 interval=2
 signal=1
-label=<span color="#EBCB8B"> </span>
 DEVICE=no
 CONTROL=no
 

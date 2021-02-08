@@ -48,7 +48,8 @@ grep "device.description" |\
 head -n1 |\
 sed 's/.*= "\(.*\)".*/\1/')
 
-INFO=
+INFO=""
+ICON="奄"
 
 if [ "$DEVICE" = "no" ]; then
   INFO="${VOL}%"
@@ -60,4 +61,17 @@ else
   INFO="${VOL}% [${NAME}]"
 fi
 
-[ "$MUTED" = "muted: no" ] && echo "${INFO}" || echo "muted"
+if [ "$VOL" -gt 49 ]; then
+  ICON="奔"
+fi
+
+if [ "$VOL" -gt 74 ]; then
+  ICON=""
+fi
+
+if [ "$MUTED" = "muted: yes" ]; then
+  ICON="婢"
+  INFO="<span color='#BF616A'>${INFO}</span>"
+fi
+
+echo "<span color='#EBCB8B'>${ICON}</span> ${INFO}"
