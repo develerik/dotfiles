@@ -1,5 +1,0 @@
-- link:
-    ~/.config/chromium-flags.conf: chromium/chromium-flags.conf
-
-- shell:
-  - ln -s ~/.config/chromium/ ~/.config/google-chrome
