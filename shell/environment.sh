@@ -43,14 +43,14 @@ export PATH="$PATH:$HOME/.bin:$HOME/.local/bin:$HOME/.dotnet/tools"
 # android                                                                      #
 ################################################################################
 
-export ANDROID_HOME="$HOME/.android/sdk"
+export ANDROID_HOME="$HOME/android/sdk"
 export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools"
 
 ################################################################################
 # golang                                                                       #
 ################################################################################
 
-export GOPATH="$HOME/.go"
+export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export CGO_ENABLED="0"
 export GO111MODULE="auto"
