@@ -27,6 +27,8 @@
 	short = true
 	# show the branch in short format
 	branch = true
+	# always show all untracked files
+	showUntrackedFiles = all
 
 [color]
 	# colorful ui
