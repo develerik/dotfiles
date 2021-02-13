@@ -29,7 +29,7 @@
     # icons
     icon_position = left
     max_icon_size = 64
-    icon_path = /usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/devices/
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/devices/
 
     # behavior
     sort = true
@@ -71,7 +71,7 @@
     foreground = "#eceff4"
     timeout = 0
 
-[Spotify]
+[now_playing]
     background = "#1db954"
     foreground = "#ffffff"
     appname = Spotify
