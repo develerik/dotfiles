@@ -1,7 +1,7 @@
 command=~/.config/i3blocks/blocks/$BLOCK_NAME.sh
 align=center
 separator=false
-separator_block_width=15
+separator_block_width=10
 markup=pango
 
 [mediaplayer]

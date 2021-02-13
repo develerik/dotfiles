@@ -206,6 +206,8 @@ for_window [class="File-roller"]                                        floating
 for_window [class="pdfmixtool"]                                         floating enable
 for_window [class="Pcmanfm"]                                            floating enable
 for_window [class="Lxappearance"]                                       floating enable
+for_window [class="UnityHub"]                                           floating enable
+for_window [class="Spotify"]                                            floating enable
 for_window [class="Evolution-alarm-notify"]                             floating enable
 for_window [class="Evolution" title="Appointment — .*"]                 floating enable
 for_window [class="Evolution" title="Meeting — .*"]                     floating enable
