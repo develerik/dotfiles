@@ -1,6 +1,8 @@
 [core]
 	# use neovim as default editor
 	editor = nvim
+	# don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
 
 [init]
 	defaultBranch = main
@@ -52,6 +54,8 @@
 	algorithm = histogram
 	# configure vscode as external difftool
 	tool = vscode
+	# detect copies as well as renames
+	renames = copies
 
 # better swift diff
 [diff "swift"]
@@ -110,12 +114,18 @@
 	identity = "!git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 	# show all aliases
 	aliases = "--list-cmds=alias"
+	# view abbreviated SHA, description, and history graph of the latest 20 commits
+	l = "log --pretty=oneline -n 20 --graph --abbrev-commit"
 	# show a graph summay
 	ll = "log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %C(cyan)[%an]%Creset'"
 	# publish a new git branch on the remote
 	publish = "!git push -u origin $(git branch --show-current)"
 	# remove a git branch from the remote
 	unpublish = "!git push origin :$(git branch --show-current)"
+	# show all remotes
+	remotes = "remote -v"
+	# list contributors with number of commits
+	contributors = "shortlog --summary --numbered"
 	# show all branches
 	branches = "branch -a"
 	# show all stashes
@@ -132,10 +142,14 @@
 	pf = "push --force-with-lease"
 	# faster checkout
 	cb = "checkout -b"
+	# switch to a branch, creating it if necessary
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 	# undo last commit
 	undo = "reset --soft HEAD^"
 	# edit last commit message
-	reword = commit --amend
+	reword = "commit --amend"
+	# safe force push
+	fpush = "push --force-with-lease"
 	# amend to commit without changing the message
 	oops = "!f(){ \
 		if [ \"$1\" == '' ]; then \
