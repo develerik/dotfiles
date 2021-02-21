@@ -1,6 +1,0 @@
-- create:
-    - ~/.config/pulse
-
-- link:
-    ~/.config/pulse/daemon.conf: pulse/daemon.conf
-    ~/.config/pulse/default.pa: pulse/default.pa
