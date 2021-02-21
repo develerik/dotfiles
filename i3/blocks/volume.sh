@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -a
 
@@ -10,9 +10,9 @@ if [ ! "$DEVICE" = "no" ]; then
   esac
 fi
 
-VOL=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
-MUTED=$(pactl list sinks | grep '^[[:space:]]Mute:' | head -n $(( $SINK + 1 )) | tail -n 1 | cut -c8-)
-NAME=$(pactl list sinks | grep '^[[:space:]]Description:' | head -n $(( $SINK + 1 )) | tail -n 1 | cut -c15-)
+VOL=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $((SINK + 1)) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+MUTED=$(pactl list sinks | grep '^[[:space:]]Mute:' | head -n $((SINK + 1)) | tail -n 1 | cut -c8-)
+NAME=$(pactl list sinks | grep '^[[:space:]]Description:' | head -n $((SINK + 1)) | tail -n 1 | cut -c15-)
 
 INFO=""
 ICON="奄"
