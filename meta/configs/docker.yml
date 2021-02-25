@@ -4,4 +4,4 @@
     - ~/.bin
 
 - link:
-    ~/.bin/compose: docker/compose
+    ~/.bin/compose: docker/compose/compose.py

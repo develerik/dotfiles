@@ -13,3 +13,6 @@
 [submodule "zsh/plugins/zsh-defer"]
 	path = zsh/plugins/zsh-defer
 	url = https://github.com/romkatv/zsh-defer.git
+[submodule "docker/compose"]
+	path = docker/compose
+	url = https://github.com/develerik/compose.git
