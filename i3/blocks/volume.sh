@@ -74,4 +74,38 @@ if [ "$MUTED" = "muted: yes" ]; then
   INFO="<span color='#BF616A'>${INFO}</span>"
 fi
 
-echo "<span color='#EBCB8B'>${ICON}</span> ${INFO}"
+ACTIVE=$(pacmd list-sources | grep "* index" -B4 -A11 | grep "index:\|name:\|volume: \(front\)\|muted:")
+for name in INDEX NAME VOL MUTED; do
+  read -r ${name?}
+done < <(echo "$ACTIVE")
+
+VOL=$(echo "$VOL" | grep -o "[0-9]*%" | head -1)
+VOL="${VOL%?}"
+
+NAME=$(pacmd list-sources |\
+awk '/^\s*\*/{f=1}/^\s*index:/{f=0}f' |\
+grep "device.description" |\
+head -n1 |\
+sed 's/.*= "\(.*\)".*/\1/')
+
+if [ ! "${NAME##*"Analog Stereo"*}" ]; then
+  NAME=$(echo $NAME | sed -r 's/^(.*) Analog Stereo$/\1/')
+fi
+
+if [ "$DEVICE" = "no" ]; then
+  MIC="<span color='#EBCB8B'></span> ${VOL}%"
+
+  if [ "$MUTED" = "muted: yes" ]; then
+    MIC="<span color='#EBCB8B'></span> ${VOL}%"
+  fi
+else
+  MIC="<span color='#EBCB8B'></span> ${VOL}% [${NAME}]"
+
+  if [ "$MUTED" = "muted: yes" ]; then
+    MIC="<span color='#EBCB8B'></span> ${VOL}% [${NAME}]"
+  fi
+fi
+
+echo "${MIC} <span color='#EBCB8B'>${ICON}</span> ${INFO}"
+
+# TODO: correctly setup

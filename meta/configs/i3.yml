@@ -6,6 +6,7 @@
     - ~/Pictures/Wallpapers
 
 - link:
+    ~/.xbindkeysrc: i3/xbindkeysrc
     ~/.config/i3/config: i3/config
     ~/.config/i3blocks/config_main: i3/blocks_main
     ~/.config/i3blocks/config_side: i3/blocks_side

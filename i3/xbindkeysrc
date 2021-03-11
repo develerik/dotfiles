@@ -1,0 +1,2 @@
+"xvkbd -xsendevent -text "\[F5]""
+m:0x10 + c:181
